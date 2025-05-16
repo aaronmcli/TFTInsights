@@ -1,0 +1,56 @@
+Installing a Python environment on your computer can be done in many ways, and it can be a notoriously finicky process.  Below, I describe how to do it using a virtual environment with Anaconda.  Please do note:
+
+If you want to do it another way, you are quite welcome to explore other options.
+If you already have the packages on your system, you do not need to follow any instructions below.
+If you have any trouble at any step, please ask so we can sort out any issues.
+We will be setting up Python 3.10 along with the following:
+
+jupyterlab
+numpy
+matplotlib
+pandas
+seaborn
+plotly
+ipywidgets
+statsmodels
+scikit-learn
+yellowbrick
+dtreeviz
+xgboost
+nltk
+gensim
+tensorflow==2.17
+jax
+Instructions
+
+Install Anaconda
+See the instructions here:  https://docs.anaconda.com/anaconda/install
+Download requirements.txt Download requirements.txtand TF_JAX_Test.ipynb Download TF_JAX_Test.ipynbto your home directory (or another folder of your choice).  If your username is "<USERNAME>" then:
+On Windows, the home directory is C:\Users\<USERNAME>\
+On Mac, the home directory is /Users/<USERNAME>
+On Linux, the home directory is /home/<USERNAME>
+Open a terminal and navigate to the same home directory (or location in which you saved the files)
+On Mac and Linux, you can do this by opening the application called Terminal
+On Windows, open the Anaconda Prompt from the Start Menu
+In all likelihood, you will automatically be in the home directory when you open these applications
+If you have saved the files into a non-home directory, change into the directory containing the saved files
+We will now create a virtual environment. 
+This will be useful to isolate our installed packages so that they do not create conflicts if you decide to create other Python projects in the future.
+create the environment by executing the following command in the terminal:
+conda create -n uclax-ml -c conda-forge python=3.10
+in the above, you can change "uclax-ml" to be another name if you want
+the command will check for packages and then prompt you to confirm that it's ok to proceed
+When it's created, activate the environment by executing conda activate uclax-ml
+You will need to do this every time you open a new terminal and want to interact with the installed packages
+Install the python packages into the environment by executing pip install -r requirements.txt
+Execute the following to re-initialize the environment (we're installing jupyterlab and this will make sure we refresh the path)
+conda deactivate uclax-ml
+conda activate uclax-ml
+Check that you have a working installation of JupyterLab, JAX, and TensorFlow by doing the following:
+In the terminal, execute jupyter lab
+This should open JupyterLab in a new web browser tab, and you should see a menu listing files/folders that are in your directory
+Double-click on the file "TF_JAX_Test.ipynb"
+Execute the cells
+If you see any error messages, let me know.  Otherwise, you are good to go!
+Close down the notebook, shut down the JupyterLab session by selecting File -> Shut Down, and exit out of your terminal
+Remember that the next time you want to interact with the environment, you'll need to again open a terminal and execute conda activate uclax-ml, followed by jupyter lab if you want to then open JupyterLab

@@ -1,0 +1,2152 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20251.25.0415.1018                               -->
+<workbook original-version='18.1' source-build='2025.1.1 (20251.25.0415.1018)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='flattened_matches' inline='true' name='federated.0zwsneg1nrrfb814ud01q06q3kzo' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='flattened_matches' name='textscan.1ro58ng1oqhl9z1228ua81lwiq7c'>
+            <connection class='textscan' directory='C:/Users/Aaron/Documents/GitHub/UCLAX-25S-ML/MyHomework/TFT' filename='flattened_matches.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1ro58ng1oqhl9z1228ua81lwiq7c' name='flattened_matches.csv' table='[flattened_matches#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='gold_left' ordinal='0' />
+            <column datatype='integer' name='last_round' ordinal='1' />
+            <column datatype='integer' name='level' ordinal='2' />
+            <column datatype='integer' name='placement' ordinal='3' />
+            <column datatype='integer' name='players_eliminated' ordinal='4' />
+            <column datatype='string' name='puuid' ordinal='5' />
+            <column datatype='string' name='riotIdGameName' ordinal='6' />
+            <column datatype='string' name='riotIdTagline' ordinal='7' />
+            <column datatype='real' name='time_eliminated' ordinal='8' />
+            <column datatype='integer' name='total_damage_to_players' ordinal='9' />
+            <column datatype='boolean' name='win' ordinal='10' />
+            <column datatype='string' name='companion.content_ID' ordinal='11' />
+            <column datatype='integer' name='companion.item_ID' ordinal='12' />
+            <column datatype='integer' name='companion.skin_ID' ordinal='13' />
+            <column datatype='string' name='companion.species' ordinal='14' />
+            <column datatype='real' name='missions.PlayerScore2' ordinal='15' />
+            <column datatype='string' name='rank_at_match_time.tier' ordinal='16' />
+            <column datatype='string' name='rank_at_match_time.rank' ordinal='17' />
+            <column datatype='real' name='rank_at_match_time.leaguePoints' ordinal='18' />
+            <column datatype='real' name='rank_at_match_time.wins' ordinal='19' />
+            <column datatype='real' name='rank_at_match_time.losses' ordinal='20' />
+            <column datatype='real' name='rank_at_match_time.read_time' ordinal='21' />
+            <column datatype='string' name='endOfGameResult' ordinal='22' />
+            <column datatype='integer' name='gameCreation' ordinal='23' />
+            <column datatype='integer' name='gameId' ordinal='24' />
+            <column datatype='integer' name='game_datetime' ordinal='25' />
+            <column datatype='real' name='game_length' ordinal='26' />
+            <column datatype='string' name='game_version' ordinal='27' />
+            <column datatype='integer' name='mapId' ordinal='28' />
+            <column datatype='integer' name='queueId' ordinal='29' />
+            <column datatype='integer' name='queue_id' ordinal='30' />
+            <column datatype='string' name='tft_game_type' ordinal='31' />
+            <column datatype='string' name='tft_set_core_name' ordinal='32' />
+            <column datatype='integer' name='tft_set_number' ordinal='33' />
+            <column datatype='real' name='trait_TFT14_Thirsty' ordinal='34' />
+            <column datatype='real' name='trait_TFT14_Supercharge' ordinal='35' />
+            <column datatype='real' name='trait_TFT14_Controller' ordinal='36' />
+            <column datatype='real' name='trait_TFT14_Virus' ordinal='37' />
+            <column datatype='real' name='trait_TFT14_Cutter' ordinal='38' />
+            <column datatype='real' name='trait_TFT14_ViegoUniqueTrait' ordinal='39' />
+            <column datatype='real' name='trait_TFT14_Cyberboss' ordinal='40' />
+            <column datatype='real' name='trait_TFT14_Armorclad' ordinal='41' />
+            <column datatype='real' name='trait_TFT14_AnimaSquad' ordinal='42' />
+            <column datatype='real' name='trait_TFT14_Techie' ordinal='43' />
+            <column datatype='real' name='trait_TFT14_Bruiser' ordinal='44' />
+            <column datatype='real' name='trait_TFT14_StreetDemon' ordinal='45' />
+            <column datatype='real' name='trait_TFT14_Vanguard' ordinal='46' />
+            <column datatype='real' name='trait_TFT14_BallisTek' ordinal='47' />
+            <column datatype='real' name='trait_TFT14_Strong' ordinal='48' />
+            <column datatype='real' name='trait_TFT14_Mob' ordinal='49' />
+            <column datatype='real' name='trait_TFT14_Divinicorp' ordinal='50' />
+            <column datatype='real' name='trait_TFT14_Suits' ordinal='51' />
+            <column datatype='real' name='unit_TFT14_Vi' ordinal='52' />
+            <column datatype='real' name='unit_TFT14_Urgot' ordinal='53' />
+            <column datatype='real' name='unit_TFT14_Shyvana' ordinal='54' />
+            <column datatype='real' name='unit_TFT14_Vayne' ordinal='55' />
+            <column datatype='real' name='unit_TFT14_Illaoi' ordinal='56' />
+            <column datatype='real' name='unit_TFT14_LeBlanc' ordinal='57' />
+            <column datatype='real' name='unit_TFT14_Vex' ordinal='58' />
+            <column datatype='real' name='unit_TFT14_Draven' ordinal='59' />
+            <column datatype='real' name='unit_TFT14_Poppy' ordinal='60' />
+            <column datatype='real' name='unit_TFT14_Samira' ordinal='61' />
+            <column datatype='real' name='unit_TFT14_Mordekaiser' ordinal='62' />
+            <column datatype='real' name='unit_TFT14_Jarvan' ordinal='63' />
+            <column datatype='real' name='unit_TFT14_Leona' ordinal='64' />
+            <column datatype='real' name='unit_TFT14_Xayah' ordinal='65' />
+            <column datatype='real' name='unit_TFT14_Neeko' ordinal='66' />
+            <column datatype='real' name='unit_TFT14_Ekko' ordinal='67' />
+            <column datatype='real' name='unit_TFT14_Braum' ordinal='68' />
+            <column datatype='real' name='unit_TFT14_Viego' ordinal='69' />
+            <column datatype='real' name='unit_TFT14_Jax' ordinal='70' />
+            <column datatype='real' name='unit_TFT14_Brand' ordinal='71' />
+            <column datatype='real' name='unit_TFT14_Sylas' ordinal='72' />
+            <column datatype='real' name='unit_TFT14_Kobuko' ordinal='73' />
+            <column datatype='real' name='unit_TFT14_Skarner' ordinal='74' />
+            <column datatype='real' name='unit_TFT14_Darius' ordinal='75' />
+            <column datatype='real' name='unit_TFT14_MissFortune' ordinal='76' />
+            <column datatype='real' name='unit_TFT14_Zed' ordinal='77' />
+            <column datatype='real' name='unit_TFT14_Fiddlesticks' ordinal='78' />
+            <column datatype='real' name='unit_TFT14_Zac' ordinal='79' />
+            <column datatype='real' name='unit_TFT14_Galio' ordinal='80' />
+            <column datatype='real' name='unit_TFT14_Chogath' ordinal='81' />
+            <column datatype='real' name='unit_TFT14_Veigar' ordinal='82' />
+            <column datatype='real' name='unit_TFT14_KogMaw' ordinal='83' />
+            <column datatype='real' name='unit_TFT14_Rengar' ordinal='84' />
+            <column datatype='real' name='unit_TFT14_Morgana' ordinal='85' />
+            <column datatype='real' name='unit_TFT14_Sejuani' ordinal='86' />
+            <column datatype='real' name='unit_TFT14_Elise' ordinal='87' />
+            <column datatype='real' name='unit_TFT14_Ziggs' ordinal='88' />
+            <column datatype='real' name='unit_TFT14_Seraphine' ordinal='89' />
+            <column datatype='real' name='unit_TFT14_Zyra' ordinal='90' />
+            <column datatype='real' name='unit_TFT14_Gragas' ordinal='91' />
+            <column datatype='real' name='unit_TFT14_Senna' ordinal='92' />
+            <column datatype='real' name='unit_TFT14_DrMundo' ordinal='93' />
+            <column datatype='real' name='unit_TFT14_Yuumi' ordinal='94' />
+            <column datatype='real' name='unit_TFT14_Rhaast' ordinal='95' />
+            <column datatype='real' name='unit_TFT14_Shaco' ordinal='96' />
+            <column datatype='real' name='unit_TFT14_Aurora' ordinal='97' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gold_left</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gold_left]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>gold_left</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>last_round</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[last_round]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>last_round</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>level</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[level]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>level</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>placement</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[placement]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>placement</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>players_eliminated</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[players_eliminated]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>players_eliminated</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>puuid</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[puuid]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>puuid</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>riotIdGameName</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[riotIdGameName]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>riotIdGameName</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>riotIdTagline</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[riotIdTagline]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>riotIdTagline</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time_eliminated</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[time_eliminated]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>time_eliminated</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_damage_to_players</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_damage_to_players]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>total_damage_to_players</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>win</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[win]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>win</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>companion.content_ID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[companion.content_ID]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>companion.content_ID</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>companion.item_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[companion.item_ID]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>companion.item_ID</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>companion.skin_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[companion.skin_ID]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>companion.skin_ID</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>companion.species</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[companion.species]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>companion.species</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>missions.PlayerScore2</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[missions.PlayerScore2]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>missions.PlayerScore2</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.tier</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[rank_at_match_time.tier]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.tier</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.rank</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[rank_at_match_time.rank]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.rank</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.leaguePoints</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_at_match_time.leaguePoints]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.leaguePoints</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.wins</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_at_match_time.wins]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.wins</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.losses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_at_match_time.losses]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.losses</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank_at_match_time.read_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_at_match_time.read_time]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>rank_at_match_time.read_time</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>endOfGameResult</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[endOfGameResult]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>endOfGameResult</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gameCreation</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gameCreation]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>gameCreation</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gameId</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gameId]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>gameId</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_datetime</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[game_datetime]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>game_datetime</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_length</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[game_length]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>game_length</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_version</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[game_version]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>game_version</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mapId</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[mapId]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>mapId</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>queueId</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[queueId]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>queueId</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>queue_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[queue_id]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>queue_id</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tft_game_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tft_game_type]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>tft_game_type</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tft_set_core_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tft_set_core_name]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>tft_set_core_name</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tft_set_number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tft_set_number]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>tft_set_number</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Thirsty</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Thirsty]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Thirsty</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Supercharge</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Supercharge]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Supercharge</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Controller</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Controller]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Controller</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Virus</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Virus]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Virus</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Cutter</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Cutter]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Cutter</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_ViegoUniqueTrait</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_ViegoUniqueTrait]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_ViegoUniqueTrait</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Cyberboss</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Cyberboss]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Cyberboss</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Armorclad</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Armorclad]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Armorclad</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_AnimaSquad</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_AnimaSquad]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_AnimaSquad</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Techie</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Techie]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Techie</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Bruiser</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Bruiser]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Bruiser</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_StreetDemon</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_StreetDemon]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_StreetDemon</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Vanguard</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Vanguard]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Vanguard</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_BallisTek</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_BallisTek]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_BallisTek</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Strong</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Strong]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Strong</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Mob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Mob]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Mob</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Divinicorp</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Divinicorp]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Divinicorp</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trait_TFT14_Suits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[trait_TFT14_Suits]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>trait_TFT14_Suits</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Vi</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Vi]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Vi</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Urgot</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Urgot]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Urgot</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Shyvana</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Shyvana]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Shyvana</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Vayne</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Vayne]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Vayne</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Illaoi</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Illaoi]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Illaoi</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_LeBlanc</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_LeBlanc]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_LeBlanc</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Vex</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Vex]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Vex</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Draven</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Draven]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Draven</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Poppy</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Poppy]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Poppy</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Samira</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Samira]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Samira</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Mordekaiser</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Mordekaiser]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Mordekaiser</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Jarvan</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Jarvan]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Jarvan</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Leona</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Leona]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Leona</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Xayah</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Xayah]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Xayah</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Neeko</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Neeko]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Neeko</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Ekko</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Ekko]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Ekko</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Braum</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Braum]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Braum</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Viego</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Viego]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Viego</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Jax</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Jax]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Jax</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Brand</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Brand]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Brand</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Sylas</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Sylas]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Sylas</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Kobuko</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Kobuko]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Kobuko</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Skarner</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Skarner]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Skarner</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Darius</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Darius]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Darius</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_MissFortune</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_MissFortune]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_MissFortune</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Zed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Zed]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Zed</remote-alias>
+            <ordinal>77</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Fiddlesticks</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Fiddlesticks]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Fiddlesticks</remote-alias>
+            <ordinal>78</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Zac</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Zac]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Zac</remote-alias>
+            <ordinal>79</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Galio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Galio]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Galio</remote-alias>
+            <ordinal>80</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Chogath</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Chogath]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Chogath</remote-alias>
+            <ordinal>81</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Veigar</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Veigar]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Veigar</remote-alias>
+            <ordinal>82</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_KogMaw</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_KogMaw]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_KogMaw</remote-alias>
+            <ordinal>83</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Rengar</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Rengar]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Rengar</remote-alias>
+            <ordinal>84</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Morgana</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Morgana]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Morgana</remote-alias>
+            <ordinal>85</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Sejuani</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Sejuani]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Sejuani</remote-alias>
+            <ordinal>86</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Elise</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Elise]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Elise</remote-alias>
+            <ordinal>87</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Ziggs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Ziggs]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Ziggs</remote-alias>
+            <ordinal>88</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Seraphine</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Seraphine]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Seraphine</remote-alias>
+            <ordinal>89</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Zyra</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Zyra]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Zyra</remote-alias>
+            <ordinal>90</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Gragas</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Gragas]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Gragas</remote-alias>
+            <ordinal>91</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Senna</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Senna]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Senna</remote-alias>
+            <ordinal>92</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_DrMundo</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_DrMundo]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_DrMundo</remote-alias>
+            <ordinal>93</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Yuumi</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Yuumi]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Yuumi</remote-alias>
+            <ordinal>94</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Rhaast</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Rhaast]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Rhaast</remote-alias>
+            <ordinal>95</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Shaco</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Shaco]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Shaco</remote-alias>
+            <ordinal>96</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_TFT14_Aurora</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[unit_TFT14_Aurora]</local-name>
+            <parent-name>[flattened_matches.csv]</parent-name>
+            <remote-alias>unit_TFT14_Aurora</remote-alias>
+            <ordinal>97</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='None' datatype='integer' name='[Total Damage To Players (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='2' formula='[total_damage_to_players]' peg='0' size='444' />
+      </column>
+      <column caption='flattened_matches.csv' datatype='table' name='[__tableau_internal_object_id__].[flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8]' role='measure' type='quantitative' />
+      <column caption='companion.content ID' datatype='string' name='[companion.content_ID]' role='dimension' type='nominal' />
+      <column caption='companion.item ID' datatype='integer' name='[companion.item_ID]' role='dimension' type='ordinal' />
+      <column caption='companion.skin ID' datatype='integer' name='[companion.skin_ID]' role='dimension' type='ordinal' />
+      <column caption='Companion.Species' datatype='string' name='[companion.species]' role='dimension' type='nominal' />
+      <column caption='Gold Left' datatype='integer' name='[gold_left]' role='measure' type='quantitative' />
+      <column caption='Last Round' datatype='integer' name='[last_round]' role='measure' type='quantitative' />
+      <column caption='Level' datatype='integer' name='[level]' role='measure' type='quantitative' />
+      <column caption='Partner Group Id' datatype='real' name='[partner_group_id]' role='dimension' type='ordinal' />
+      <column caption='Placement' datatype='integer' name='[placement]' role='measure' type='quantitative' />
+      <column caption='Players Eliminated' datatype='integer' name='[players_eliminated]' role='measure' type='quantitative' />
+      <column caption='Puuid' datatype='string' name='[puuid]' role='dimension' type='nominal' />
+      <column caption='Pve Score' datatype='real' name='[pve_score]' role='measure' type='quantitative' />
+      <column caption='Pve Wonrun' datatype='boolean' name='[pve_wonrun]' role='dimension' type='nominal' />
+      <column caption='rank at match time.leaguePoints' datatype='real' name='[rank_at_match_time.leaguePoints]' role='measure' type='quantitative' />
+      <column caption='Rank At Match Time.Losses' datatype='real' name='[rank_at_match_time.losses]' role='measure' type='quantitative' />
+      <column caption='Rank At Match Time.Rank' datatype='string' name='[rank_at_match_time.rank]' role='dimension' type='nominal' />
+      <column caption='Rank At Match Time.Read Time' datatype='real' name='[rank_at_match_time.read_time]' role='measure' type='quantitative' />
+      <column caption='Rank At Match Time.Tier' datatype='string' name='[rank_at_match_time.tier]' role='dimension' type='nominal' />
+      <column caption='Rank At Match Time.Wins' datatype='real' name='[rank_at_match_time.wins]' role='measure' type='quantitative' />
+      <column caption='Riot Id Game Name' datatype='string' name='[riotIdGameName]' role='dimension' type='nominal' />
+      <column caption='Riot Id Tagline' datatype='string' name='[riotIdTagline]' role='dimension' type='nominal' />
+      <column caption='Time Eliminated' datatype='real' name='[time_eliminated]' role='measure' type='quantitative' />
+      <column caption='Total Damage To Players' datatype='integer' name='[total_damage_to_players]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 AnimaSquad' datatype='real' name='[trait_TFT14_AnimaSquad]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Armorclad' datatype='real' name='[trait_TFT14_Armorclad]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 BallisTek' datatype='real' name='[trait_TFT14_BallisTek]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Bruiser' datatype='real' name='[trait_TFT14_Bruiser]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Controller' datatype='real' name='[trait_TFT14_Controller]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Cutter' datatype='real' name='[trait_TFT14_Cutter]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Cyberboss' datatype='real' name='[trait_TFT14_Cyberboss]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Divinicorp' datatype='real' name='[trait_TFT14_Divinicorp]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 EdgeRunner' datatype='real' name='[trait_TFT14_EdgeRunner]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 HotRod' datatype='real' name='[trait_TFT14_HotRod]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Immortal' datatype='real' name='[trait_TFT14_Immortal]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Marksman' datatype='real' name='[trait_TFT14_Marksman]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Mob' datatype='real' name='[trait_TFT14_Mob]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Netgod' datatype='real' name='[trait_TFT14_Netgod]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Overlord' datatype='real' name='[trait_TFT14_Overlord]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 StreetDemon' datatype='real' name='[trait_TFT14_StreetDemon]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Strong' datatype='real' name='[trait_TFT14_Strong]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Suits' datatype='real' name='[trait_TFT14_Suits]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Supercharge' datatype='real' name='[trait_TFT14_Supercharge]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Swift' datatype='real' name='[trait_TFT14_Swift]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Techie' datatype='real' name='[trait_TFT14_Techie]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Thirsty' datatype='real' name='[trait_TFT14_Thirsty]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Vanguard' datatype='real' name='[trait_TFT14_Vanguard]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 ViegoUniqueTrait' datatype='real' name='[trait_TFT14_ViegoUniqueTrait]' role='measure' type='quantitative' />
+      <column caption='trait TFT14 Virus' datatype='real' name='[trait_TFT14_Virus]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Alistar' datatype='real' name='[unit_TFT14_Alistar]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 AnnieTibbers' datatype='string' name='[unit_TFT14_AnnieTibbers]' role='dimension' type='nominal' />
+      <column caption='unit TFT14 Annie' datatype='real' name='[unit_TFT14_Annie]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Aphelios' datatype='real' name='[unit_TFT14_Aphelios]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Aurora' datatype='real' name='[unit_TFT14_Aurora]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Brand' datatype='real' name='[unit_TFT14_Brand]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Braum' datatype='real' name='[unit_TFT14_Braum]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Chogath' datatype='real' name='[unit_TFT14_Chogath]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Darius' datatype='real' name='[unit_TFT14_Darius]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 DrMundo' datatype='real' name='[unit_TFT14_DrMundo]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Draven' datatype='real' name='[unit_TFT14_Draven]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Ekko' datatype='real' name='[unit_TFT14_Ekko]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Elise' datatype='real' name='[unit_TFT14_Elise]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Fiddlesticks' datatype='real' name='[unit_TFT14_Fiddlesticks]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Galio' datatype='real' name='[unit_TFT14_Galio]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Garen' datatype='real' name='[unit_TFT14_Garen]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Gragas' datatype='real' name='[unit_TFT14_Gragas]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Graves' datatype='real' name='[unit_TFT14_Graves]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Illaoi' datatype='real' name='[unit_TFT14_Illaoi]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Jarvan' datatype='real' name='[unit_TFT14_Jarvan]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Jax' datatype='real' name='[unit_TFT14_Jax]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Jhin' datatype='real' name='[unit_TFT14_Jhin]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Jinx' datatype='real' name='[unit_TFT14_Jinx]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Kindred' datatype='real' name='[unit_TFT14_Kindred]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Kobuko' datatype='real' name='[unit_TFT14_Kobuko]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 KogMaw' datatype='real' name='[unit_TFT14_KogMaw]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 LeBlanc' datatype='real' name='[unit_TFT14_LeBlanc]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Leona' datatype='real' name='[unit_TFT14_Leona]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 MissFortune' datatype='real' name='[unit_TFT14_MissFortune]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Mordekaiser' datatype='real' name='[unit_TFT14_Mordekaiser]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Morgana' datatype='real' name='[unit_TFT14_Morgana]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Naafiri' datatype='real' name='[unit_TFT14_Naafiri]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Neeko' datatype='real' name='[unit_TFT14_Neeko]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 NidaleeCougar' datatype='real' name='[unit_TFT14_NidaleeCougar]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Poppy' datatype='real' name='[unit_TFT14_Poppy]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Renekton' datatype='real' name='[unit_TFT14_Renekton]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Rengar' datatype='real' name='[unit_TFT14_Rengar]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Rhaast' datatype='real' name='[unit_TFT14_Rhaast]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Samira' datatype='real' name='[unit_TFT14_Samira]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Sejuani' datatype='real' name='[unit_TFT14_Sejuani]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Senna' datatype='real' name='[unit_TFT14_Senna]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Seraphine' datatype='real' name='[unit_TFT14_Seraphine]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Shaco' datatype='real' name='[unit_TFT14_Shaco]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Shyvana' datatype='real' name='[unit_TFT14_Shyvana]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Skarner' datatype='real' name='[unit_TFT14_Skarner]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 SummonLevel2' datatype='real' name='[unit_TFT14_SummonLevel2]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 SummonLevel4' datatype='real' name='[unit_TFT14_SummonLevel4]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Summon Turret' datatype='real' name='[unit_TFT14_Summon_Turret]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Sylas' datatype='real' name='[unit_TFT14_Sylas]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 TwistedFate' datatype='real' name='[unit_TFT14_TwistedFate]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Urgot' datatype='real' name='[unit_TFT14_Urgot]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Varus' datatype='real' name='[unit_TFT14_Varus]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Vayne' datatype='real' name='[unit_TFT14_Vayne]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Veigar' datatype='real' name='[unit_TFT14_Veigar]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Vex' datatype='real' name='[unit_TFT14_Vex]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Vi' datatype='real' name='[unit_TFT14_Vi]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Viego' datatype='real' name='[unit_TFT14_Viego]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Xayah' datatype='real' name='[unit_TFT14_Xayah]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Yuumi' datatype='real' name='[unit_TFT14_Yuumi]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Zac' datatype='real' name='[unit_TFT14_Zac]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Zed' datatype='real' name='[unit_TFT14_Zed]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Zeri' datatype='real' name='[unit_TFT14_Zeri]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Ziggs' datatype='real' name='[unit_TFT14_Ziggs]' role='measure' type='quantitative' />
+      <column caption='unit TFT14 Zyra' datatype='real' name='[unit_TFT14_Zyra]' role='measure' type='quantitative' />
+      <column caption='Win' datatype='boolean' name='[win]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='flattened_matches.csv' id='flattened_matches.csv_EA9F4CACB4EA4F4CBEE01AFAABE816C8'>
+            <properties context=''>
+              <relation connection='textscan.1ro58ng1oqhl9z1228ua81lwiq7c' name='flattened_matches.csv' table='[flattened_matches#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='gold_left' ordinal='0' />
+                  <column datatype='integer' name='last_round' ordinal='1' />
+                  <column datatype='integer' name='level' ordinal='2' />
+                  <column datatype='integer' name='placement' ordinal='3' />
+                  <column datatype='integer' name='players_eliminated' ordinal='4' />
+                  <column datatype='string' name='puuid' ordinal='5' />
+                  <column datatype='string' name='riotIdGameName' ordinal='6' />
+                  <column datatype='string' name='riotIdTagline' ordinal='7' />
+                  <column datatype='real' name='time_eliminated' ordinal='8' />
+                  <column datatype='integer' name='total_damage_to_players' ordinal='9' />
+                  <column datatype='boolean' name='win' ordinal='10' />
+                  <column datatype='string' name='companion.content_ID' ordinal='11' />
+                  <column datatype='integer' name='companion.item_ID' ordinal='12' />
+                  <column datatype='integer' name='companion.skin_ID' ordinal='13' />
+                  <column datatype='string' name='companion.species' ordinal='14' />
+                  <column datatype='real' name='missions.PlayerScore2' ordinal='15' />
+                  <column datatype='string' name='rank_at_match_time.tier' ordinal='16' />
+                  <column datatype='string' name='rank_at_match_time.rank' ordinal='17' />
+                  <column datatype='real' name='rank_at_match_time.leaguePoints' ordinal='18' />
+                  <column datatype='real' name='rank_at_match_time.wins' ordinal='19' />
+                  <column datatype='real' name='rank_at_match_time.losses' ordinal='20' />
+                  <column datatype='real' name='rank_at_match_time.read_time' ordinal='21' />
+                  <column datatype='string' name='endOfGameResult' ordinal='22' />
+                  <column datatype='integer' name='gameCreation' ordinal='23' />
+                  <column datatype='integer' name='gameId' ordinal='24' />
+                  <column datatype='integer' name='game_datetime' ordinal='25' />
+                  <column datatype='real' name='game_length' ordinal='26' />
+                  <column datatype='string' name='game_version' ordinal='27' />
+                  <column datatype='integer' name='mapId' ordinal='28' />
+                  <column datatype='integer' name='queueId' ordinal='29' />
+                  <column datatype='integer' name='queue_id' ordinal='30' />
+                  <column datatype='string' name='tft_game_type' ordinal='31' />
+                  <column datatype='string' name='tft_set_core_name' ordinal='32' />
+                  <column datatype='integer' name='tft_set_number' ordinal='33' />
+                  <column datatype='real' name='trait_TFT14_Thirsty' ordinal='34' />
+                  <column datatype='real' name='trait_TFT14_Supercharge' ordinal='35' />
+                  <column datatype='real' name='trait_TFT14_Controller' ordinal='36' />
+                  <column datatype='real' name='trait_TFT14_Virus' ordinal='37' />
+                  <column datatype='real' name='trait_TFT14_Cutter' ordinal='38' />
+                  <column datatype='real' name='trait_TFT14_ViegoUniqueTrait' ordinal='39' />
+                  <column datatype='real' name='trait_TFT14_Cyberboss' ordinal='40' />
+                  <column datatype='real' name='trait_TFT14_Armorclad' ordinal='41' />
+                  <column datatype='real' name='trait_TFT14_AnimaSquad' ordinal='42' />
+                  <column datatype='real' name='trait_TFT14_Techie' ordinal='43' />
+                  <column datatype='real' name='trait_TFT14_Bruiser' ordinal='44' />
+                  <column datatype='real' name='trait_TFT14_StreetDemon' ordinal='45' />
+                  <column datatype='real' name='trait_TFT14_Vanguard' ordinal='46' />
+                  <column datatype='real' name='trait_TFT14_BallisTek' ordinal='47' />
+                  <column datatype='real' name='trait_TFT14_Strong' ordinal='48' />
+                  <column datatype='real' name='trait_TFT14_Mob' ordinal='49' />
+                  <column datatype='real' name='trait_TFT14_Divinicorp' ordinal='50' />
+                  <column datatype='real' name='trait_TFT14_Suits' ordinal='51' />
+                  <column datatype='real' name='unit_TFT14_Vi' ordinal='52' />
+                  <column datatype='real' name='unit_TFT14_Urgot' ordinal='53' />
+                  <column datatype='real' name='unit_TFT14_Shyvana' ordinal='54' />
+                  <column datatype='real' name='unit_TFT14_Vayne' ordinal='55' />
+                  <column datatype='real' name='unit_TFT14_Illaoi' ordinal='56' />
+                  <column datatype='real' name='unit_TFT14_LeBlanc' ordinal='57' />
+                  <column datatype='real' name='unit_TFT14_Vex' ordinal='58' />
+                  <column datatype='real' name='unit_TFT14_Draven' ordinal='59' />
+                  <column datatype='real' name='unit_TFT14_Poppy' ordinal='60' />
+                  <column datatype='real' name='unit_TFT14_Samira' ordinal='61' />
+                  <column datatype='real' name='unit_TFT14_Mordekaiser' ordinal='62' />
+                  <column datatype='real' name='unit_TFT14_Jarvan' ordinal='63' />
+                  <column datatype='real' name='unit_TFT14_Leona' ordinal='64' />
+                  <column datatype='real' name='unit_TFT14_Xayah' ordinal='65' />
+                  <column datatype='real' name='unit_TFT14_Neeko' ordinal='66' />
+                  <column datatype='real' name='unit_TFT14_Ekko' ordinal='67' />
+                  <column datatype='real' name='unit_TFT14_Braum' ordinal='68' />
+                  <column datatype='real' name='unit_TFT14_Viego' ordinal='69' />
+                  <column datatype='real' name='unit_TFT14_Jax' ordinal='70' />
+                  <column datatype='real' name='unit_TFT14_Brand' ordinal='71' />
+                  <column datatype='real' name='unit_TFT14_Sylas' ordinal='72' />
+                  <column datatype='real' name='unit_TFT14_Kobuko' ordinal='73' />
+                  <column datatype='real' name='unit_TFT14_Skarner' ordinal='74' />
+                  <column datatype='real' name='unit_TFT14_Darius' ordinal='75' />
+                  <column datatype='real' name='unit_TFT14_MissFortune' ordinal='76' />
+                  <column datatype='real' name='unit_TFT14_Zed' ordinal='77' />
+                  <column datatype='real' name='unit_TFT14_Fiddlesticks' ordinal='78' />
+                  <column datatype='real' name='unit_TFT14_Zac' ordinal='79' />
+                  <column datatype='real' name='unit_TFT14_Galio' ordinal='80' />
+                  <column datatype='real' name='unit_TFT14_Chogath' ordinal='81' />
+                  <column datatype='real' name='unit_TFT14_Veigar' ordinal='82' />
+                  <column datatype='real' name='unit_TFT14_KogMaw' ordinal='83' />
+                  <column datatype='real' name='unit_TFT14_Rengar' ordinal='84' />
+                  <column datatype='real' name='unit_TFT14_Morgana' ordinal='85' />
+                  <column datatype='real' name='unit_TFT14_Sejuani' ordinal='86' />
+                  <column datatype='real' name='unit_TFT14_Elise' ordinal='87' />
+                  <column datatype='real' name='unit_TFT14_Ziggs' ordinal='88' />
+                  <column datatype='real' name='unit_TFT14_Seraphine' ordinal='89' />
+                  <column datatype='real' name='unit_TFT14_Zyra' ordinal='90' />
+                  <column datatype='real' name='unit_TFT14_Gragas' ordinal='91' />
+                  <column datatype='real' name='unit_TFT14_Senna' ordinal='92' />
+                  <column datatype='real' name='unit_TFT14_DrMundo' ordinal='93' />
+                  <column datatype='real' name='unit_TFT14_Yuumi' ordinal='94' />
+                  <column datatype='real' name='unit_TFT14_Rhaast' ordinal='95' />
+                  <column datatype='real' name='unit_TFT14_Shaco' ordinal='96' />
+                  <column datatype='real' name='unit_TFT14_Aurora' ordinal='97' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Rank'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Player Population Over Rank</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='flattened_matches' name='federated.0zwsneg1nrrfb814ud01q06q3kzo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zwsneg1nrrfb814ud01q06q3kzo'>
+            <column-instance column='[queue_id]' derivation='Attribute' name='[attr:queue_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[rank_at_match_time.leaguePoints]' derivation='Count' name='[cnt:rank_at_match_time.leaguePoints:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[rank_at_match_time.tier]' derivation='None' name='[none:rank_at_match_time.tier:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[queue_id]' role='measure' type='quantitative' />
+            <column caption='rank at match time.leaguePoints' datatype='real' name='[rank_at_match_time.leaguePoints]' role='measure' type='quantitative' />
+            <column caption='Rank At Match Time.Tier' datatype='string' name='[rank_at_match_time.tier]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0zwsneg1nrrfb814ud01q06q3kzo].[attr:queue_id:qk]' included-values='in-range'>
+            <min>1100</min>
+            <max>1100</max>
+          </filter>
+          <filter class='categorical' column='[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:rank_at_match_time.tier:nk]' />
+              <groupfilter function='member' level='[none:rank_at_match_time.tier:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>%null%</bucket>
+              <bucket>&quot;IRON&quot;</bucket>
+              <bucket>&quot;BRONZE&quot;</bucket>
+              <bucket>&quot;SILVER&quot;</bucket>
+              <bucket>&quot;GOLD&quot;</bucket>
+              <bucket>&quot;PLATINUM&quot;</bucket>
+              <bucket>&quot;EMERALD&quot;</bucket>
+              <bucket>&quot;DIAMOND&quot;</bucket>
+              <bucket>&quot;MASTER&quot;</bucket>
+              <bucket>&quot;GRANDMASTER&quot;</bucket>
+              <bucket>&quot;CHALLENGER&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]</column>
+            <column>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[attr:queue_id:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='label'>
+            <format attr='text-orientation' field='[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]' value='-90' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[cnt:rank_at_match_time.leaguePoints:qk]</rows>
+        <cols>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]</cols>
+      </table>
+      <simple-id uuid='{1B595741-33F2-4428-B9C0-EB6E3869AB4F}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{CCDEC38E-3126-4145-B5FD-C1BD71AC9C60}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='50000' id='3' is-scaled='1' param='C:/Users/Aaron/OneDrive/Pictures/Image_20250504195121.jpg' type-v2='bitmap' w='30000' x='57700' y='22875' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='11' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+                <zone fixed-size='280' h='50000' id='3' is-fixed='true' is-scaled='1' param='C:/Users/Aaron/OneDrive/Pictures/Image_20250504195121.jpg' type-v2='bitmap' w='30000' x='57700' y='22875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{F6D4B8B3-DC8B-4D31-B741-DAE135F79FD7}' />
+    </dashboard>
+    <dashboard name='Story 1' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Inisights and Tooling opportunies for Teamfight Tactics
+Aaron Li</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97916' id='10' param='vert' removable='false' type-v2='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='97916' id='1' param='vert' removable='false' type-v2='layout-flow' w='98828' x='586' y='1042'>
+              <zone h='10286' id='4' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98828' x='586' y='1042' />
+              <zone h='87630' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98828' x='586' y='11328'>
+                <flipboard active-id='1' nav-type='number' show-nav-arrows='true'>
+                  <story-points>
+                    <story-point captured-sheet='Dashboard 1' id='2' />
+                    <story-point caption='Validating data set' captured-sheet='Rank' id='1' />
+                  </story-points>
+                </flipboard>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone flipboard-zone-id='5' forceUpdate='true' h='58203' hidden='true' id='6' story-point-id='2' type-v2='text' w='68375' x='5637' y='22005'>
+          <formatted-text>
+            <run fontsize='48'>Insights and Tooling opportunies for Teamfight Tactics</run>
+            <run>Æ&#10;&#10;</run>
+            <run fontsize='48'>Aaron Li</run>
+          </formatted-text>
+        </zone>
+        <zone flipboard-zone-id='5' h='3906' id='11' story-point-id='1' type-v2='text' w='7321' x='61640' y='24479'>
+          <formatted-text>
+            <run fontcolor='#000000'>asdfeefef</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <simple-id uuid='{295727F7-8B5C-462E-B9D4-6E86284130B7}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Rank'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='marks' />
+            <card type='filters' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='96'>
+            <card type='caption' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card AVG='true' KURTOSIS='false' MAX='true' MEDIAN='true' MIN='true' QUART1='false' QUART3='false' SKEWNESS='false' STDEV='false' SUM='true' type='summary' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[none:rank_at_match_time.tier:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8D3E3DD0-AFFD-4053-801F-6FDD38A24129}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0zwsneg1nrrfb814ud01q06q3kzo].[:Measure Names]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{3F5A78E3-3EAE-4059-8B73-0F267F5CFC46}' />
+    </window>
+    <window class='dashboard' name='Story 1'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{A8978A5C-4100-40A8-86A8-6AC27AD38F23}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{69FD1635-D466-4408-B98B-FE14601F0844}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      AMdS8/8B1vGnlfetL+YAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Rank' width='169'>
+      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
+      SUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Story 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACxElEQVR4nO3azYrTYBSA4W/aUqaj4AX0/m9FcOFOcOG+qAuVzp/UOPEO2pFZZOB9nnXI
+      ySJvOAm5mud5HhC1WvoCYEkCIE0ApAmANAGQJgDSNktfAEzTNC59jV+tVuN0Ol0813a7Hev1
+      +tmzBcDiHh4exjRNZ4+5vr4eh8Ph4rn2+/3Y7XbPnm0FIk0AvDqPd7djejq/Es3zPL58/jQe
+      /zy9aJYAeHWm++O4P78RjfF0Gjdv341vX7+/aJYAeHXu7m/Hj5+/zh/09/d4/+HjuHlz86JZ
+      V36GY2nH49FLMCzBZ1AWt9lcvg3X6/Wznuyr1f89061ApFmBSBMAaQIgTQCkCYA0AZAmANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCk
+      CYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoA
+      SBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0
+      AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMA
+      aQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAm
+      ANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIg
+      TQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCk
+      CYA0AZAmANL+Ab86Ssk9IPN9AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
