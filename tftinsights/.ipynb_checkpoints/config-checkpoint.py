@@ -1,10 +1,14 @@
 from enum import Enum
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 DATA_DRAGON_VERSION = '15.9.1'
 UNIT_PREFIX = "unit_TFT14_"
 CURRENT_SET_NAME = "TFTSet14"
 CURRENT_SET_PREFOX = "TFT14_"
-TFT_API_KEY = "" #please get your own
+TFT_API_KEY = os.getenv("TFT_API_KEY")
 
 #TFT-LEAGUE-V1
 #https://developer.riotgames.com/apis#tft-league-v1
