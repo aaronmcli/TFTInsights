@@ -93,7 +93,11 @@ unit_df = pd.DataFrame(units_dict)
 unit_df[['trait_1', 'trait_2', 'trait_3']] = unit_df['traits'].apply(pd.Series)
 unit_df['id'] = unit_df['name'].map(get_mapping_table_for_units().set_index('name')['id'])
 
-
+def get_summon_units (prefix=True):
+    summonUnits = ['TFT14_AnnieTibbers', 'TFT14_SummonLevel2', 'TFT14_SummonLevel4', 'TFT14_Summon_Turret']
+    if prefix:
+        summonUnits = ["unit_" + item for item in summonUnits]
+    return summonUnits
 
 def get_unitplanneer_code ( target ):
     df = unit_df

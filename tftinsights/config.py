@@ -10,6 +10,8 @@ CURRENT_SET_NAME = "TFTSet14"
 CURRENT_SET_PREFOX = "TFT14_"
 TFT_API_KEY = os.getenv("TFT_API_KEY")
 
+hot_encode_csv = 'csv/flattened_matches.csv'
+
 #TFT-LEAGUE-V1
 #https://developer.riotgames.com/apis#tft-league-v1
 TFT_RANK_LEAGUE_PUUID_PLATFORM       = "/tft/league/v1/by-puuid/{puuid}"   #Get league entries in all queues for a given puuid
