@@ -6,6 +6,7 @@ from datetime import datetime
 from .config import *
 from enum import Enum
 
+# The wrapper for the API pull is incomplete, but is not a core consideration for the UCLAX Project
 
 HEADERS = {"X-Riot-Token": TFT_API_KEY}
 MATCH_URL = "https://americas.api.riotgames.com/tft/match/v1/matches/"
@@ -19,20 +20,19 @@ PUUID_TO_SUMMONER_URL_PLATFORM = "/tft/match/v1/matches/by-puuid/{puuid}/ids"
 
 SUMMONER_TO_RANK_URL_PLATFORM = "/tft/league/v1/entries/by-summoner/{summonerId}"
 
-
-
 WAIT_TIME = 0.9
 MATCH_REGION_PREFIX = "NA1_"
+
 
 def get_ranked_data_puuid ( puuid ):
     try:
 
         print ( f"\t🔍Getting Summoner for PUUID: {puuid}")
+
         # Get summonerId from puuid
         summoner_resp = requests.get(f"{PUUID_TO_SUMMONER_URL}{puuid}", headers=HEADERS)
         time.sleep(WAIT_TIME)  # Avoid hammering the API
-        
-        
+                
         for key, value in summoner_resp.headers.items():
              if 'Rate-Limit' in key:
                  print(f'\t\t{key}: {value}')
@@ -40,14 +40,15 @@ def get_ranked_data_puuid ( puuid ):
         if summoner_resp.status_code != 200:
             print ( "\t\t!!!failed!!!")
             return summoner_resp.status_code, None
+        
         summoner_id = summoner_resp.json()["id"]
                          
         # Get ranked TFT info
-
         print ( f"\t🔍Getting Rank info for Summoner {summoner_id}...")
         rank_resp = requests.get(f"{SUMMONER_TO_RANK_URL}{summoner_id}", headers=HEADERS)
         time.sleep(WAIT_TIME) 
-        
+
+        #Debug rate limit
         for key, value in rank_resp.headers.items():
              if 'Rate-Limit' in key:
                  print(f'\t\t{key}: {value}')
@@ -66,6 +67,8 @@ def get_ranked_data_puuid ( puuid ):
                     "losses": entry.get("losses")
                     #,"read_time": datetime.now().timestamp()
                 }
+                
     except Exception as e:
         print(f"Error fetching rank for {puuid}: {e}")
+        
     return rank_resp.status_code, None

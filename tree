@@ -1,0 +1,29 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<trait_TFT14_StreetDemon &le; 2.5<br/>squared_error = 5.272<br/>samples = 19200<br/>value = 4.512>, fillcolor="#f2c29f"] ;
+1 [label=<trait_TFT14_Overlord &le; 0.5<br/>squared_error = 5.256<br/>samples = 17001<br/>value = 4.618>, fillcolor="#f1ba93"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<trait_TFT14_ViegoUniqueTrait &le; 0.5<br/>squared_error = 5.211<br/>samples = 14242<br/>value = 4.763>, fillcolor="#efb082"] ;
+1 -> 2 ;
+3 [label=<trait_TFT14_Thirsty &le; 0.5<br/>squared_error = 5.051<br/>samples = 11652<br/>value = 4.921>, fillcolor="#eca470"] ;
+2 -> 3 ;
+4 [label=<trait_TFT14_Bruiser &le; 0.5<br/>squared_error = 4.998<br/>samples = 9466<br/>value = 5.073>, fillcolor="#ea995e"] ;
+3 -> 4 ;
+5 [label=<trait_TFT14_Vanguard &le; 0.5<br/>squared_error = 4.967<br/>samples = 5581<br/>value = 5.24>, fillcolor="#e78c4b"] ;
+4 -> 5 ;
+6 [label=<squared_error = 5.125<br/>samples = 3104<br/>value = 5.392>, fillcolor="#e58139"] ;
+5 -> 6 ;
+7 [label=<squared_error = 4.704<br/>samples = 2477<br/>value = 5.05>, fillcolor="#ea9a61"] ;
+5 -> 7 ;
+8 [label=<squared_error = 4.943<br/>samples = 3885<br/>value = 4.832>, fillcolor="#eeab7a"] ;
+4 -> 8 ;
+9 [label=<squared_error = 4.753<br/>samples = 2186<br/>value = 4.266>, fillcolor="#f6d4bc"] ;
+3 -> 9 ;
+10 [label=<squared_error = 5.31<br/>samples = 2590<br/>value = 4.051>, fillcolor="#fae4d5"] ;
+2 -> 10 ;
+11 [label=<squared_error = 4.826<br/>samples = 2759<br/>value = 3.873>, fillcolor="#fcf2ea"] ;
+1 -> 11 ;
+12 [label=<squared_error = 4.634<br/>samples = 2199<br/>value = 3.693>, fillcolor="#ffffff"] ;
+0 -> 12 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}

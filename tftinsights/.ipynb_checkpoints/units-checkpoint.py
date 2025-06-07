@@ -15,18 +15,22 @@ def get_mapping_table_for_units():
     df.drop("image", axis=1, inplace=True)
     return df
 
+
 def get_mapping_table_for_traits():
     url = f"https://ddragon.leagueoflegends.com/cdn/{DATA_DRAGON_VERSION}/data/en_US/tft-trait.json"
     response = requests.get(url)
     data = response.json()
-    trait_dict = data['data']  # Dictionary of champions keyed by their names
+    trait_dict = data['data']  # Dictionary of traits keyed by their names
     trait_list = list(trait_dict.values())
     df = pd.DataFrame(trait_list)
     df = df[df['id'].str.contains('TFT14_')]
     df['id'] = df['id']
     df.drop("image", axis=1, inplace=True)
     return df
-    
+
+
+# manually defined table of units, their traits, cost and "unitplannerid" which is used for encoding
+# a unit into the game's 'Team Planner' feature, allowing for easy transfer of preset compositions.
 units_dict = [
     {"name": "Alistar", "traits": ["Golden Ox", "Bruiser"], "cost": 1, "unitplannerid": 786 },
     {"name": "Annie", "traits": ["Golden Ox", "A.M.P."], "cost": 4, "unitplannerid": 790},
@@ -89,24 +93,37 @@ units_dict = [
     {"name": "Ziggs", "traits": ["Cyberboss", "Strategist"], "cost": 4, "unitplannerid": 777},
     {"name": "Zyra", "traits": ["Street Demon", "Techie"], "cost": 1, "unitplannerid": 759}
 ]
+
 unit_df = pd.DataFrame(units_dict)
 unit_df[['trait_1', 'trait_2', 'trait_3']] = unit_df['traits'].apply(pd.Series)
 unit_df['id'] = unit_df['name'].map(get_mapping_table_for_units().set_index('name')['id'])
 
+trait_csv_df_cached = pd.read_csv('csv/traits_csv.csv')
+mapping_table_for_traits_cached = get_mapping_table_for_traits()
+
+
+def get_mapping_table_for_traits_cached ():
+    return mapping_table_for_traits_cached
+
+    
+def get_traits_csv_cached ():
+    return trait_csv_df_cached
+
+    
 def get_summon_units (prefix=True):
     summonUnits = ['TFT14_AnnieTibbers', 'TFT14_SummonLevel2', 'TFT14_SummonLevel4', 'TFT14_Summon_Turret']
     if prefix:
         summonUnits = ["unit_" + item for item in summonUnits]
     return summonUnits
 
+
 def get_unitplanneer_code ( target ):
-    df = unit_df
-    #print ( df )
-    #h =  int ( df[df['name']== target ]['unitplannerid'].iloc[0] )
+    df = unit_df    
     return  f"{int ( df[df['id']== target ]['unitplannerid'].iloc[0] ):x}"
 
-def get_unitplanneer_code_comp ( target_list ):
-    code = "02"
+
+def get_unitplanneer_code_comp ( target_list ):    
+    code = "02" #This is a constant
     for t in target_list:
         code = code + ( get_unitplanneer_code (t) )
 
@@ -114,10 +131,13 @@ def get_unitplanneer_code_comp ( target_list ):
     for _ in range ( zero_to_fill ):
         code = code + "0"
     code = code + "TFTSet14"
+    
     return code
+
 
 #Get a list of all units
 def get_unit_list (traits="",cost="", units_only=False, add_prefix=False):
+    
     filter_df = unit_df
     if cost:
         # Convert cost string like "12" into [1, 2]
@@ -152,31 +172,88 @@ def get_unit_list (traits="",cost="", units_only=False, add_prefix=False):
     return filter_df
 
 
-def count_traits ( unit_list ):    
+def count_unit_cost ( unit_list ):
     
-    #Counts the total trait in a list of units provided. 
-    #Cleans the listif it is accidentally prefixed with "unit_"    
-    
-    unit_list = [ u.replace('unit_','') for u in unit_list ]    
-    unit_df = get_unit_list()        
-    df = unit_df[unit_df['id'].isin(unit_list)]    
-    traits_column = [ col for col in unit_df.columns if col.startswith('trait_')  ]    
-    value_counts = df[traits_column].stack().value_counts()
+    unit_list = [ u.replace('unit_','') for u in unit_list ]
+    unit_df = get_unit_list()  
+    df = unit_df[unit_df['id'].isin(unit_list)]     
+    value_counts = df['cost'].value_counts()
     return value_counts
 
-def count_trait_level ( unit_list ):
+
+def count_unit_star_by_cost(unit_star_df):
+    unit_df = get_unit_list()
+
+    unit_star_df.columns = [c.replace('unit_', '') for c in unit_star_df.columns]
+
+    df = unit_df[unit_df['id'].isin(unit_star_df.columns)]
+
+    # Filter out only the relevant unit columns
+    relevant_unit_star_df = unit_star_df[df['id'].tolist()]
+
+    # Match cost and max star level
+    merged = df.set_index('id')[['cost']].join(relevant_unit_star_df.T)
+    merged.columns = ['cost', 'star']
+    result = merged.groupby('cost')['star'].max()
+
+    return result
+
     
-    #Cleans the listif it is accidentally prefixed with "unit_"    
-    unit_list = [ u.replace('unit_','') for u in unit_list ] 
-    traits_count = count_traits ( unit_list )
+def count_traits ( unit_list ):        
+    # Counts the total trait in a list of units provided. 
+    # Cleans the listif it is accidentally prefixed with "unit_"    
+
+    # Strip 'unit_' prefix just in case
+    unit_list = [ u.replace('unit_','') for u in unit_list ]    
+    unit_df = get_unit_list()        
     
-    #unit_df['id'] = unit_df['name'].map(get_mapping_table_for_units().set_index('name')['id'])
-    trait_csv_df = pd.read_csv('csv/traits_csv.csv') # contains level information
+    df = unit_df[unit_df['id'].isin(unit_list)]    
     
-    traits_count.index = traits_count.index.map(trait_mapping)
-    #clean this table incase its still dirty
-    trait_csv['trait'] = trait_csv['trait'].apply(lambda  trait: trait.replace('trait_',''))
+    traits_column = [ col for col in unit_df.columns if col.startswith('trait_')  ]    
+    value_counts = df[traits_column].stack().value_counts()
     
-    trait_mapping = get_mapping_table_for_traits()
+    return value_counts
+
+
+def engineer_feature_for_traits ( unit_list ):
+    # Strip 'unit_' prefix just in case
+    unit_list = [ u.replace('unit_','') for u in unit_list ]   
+    unit_df = get_unit_list()  
+
+    trait_levels = count_trait_level ( unit_list ) 
+
+    trait_levels = trait_levels['num_units']
+          
+    df = pd.DataFrame([{
+        'max': trait_levels.max() if not trait_levels.empty else 0,
+        'count': trait_levels.size,
+        'average': trait_levels.mean() if not trait_levels.empty else 0
+    }])
+
+    return df
+
     
+def count_trait_level(unit_list):
+    # Strip 'unit_' prefix just in case
+    unit_list = [u.replace('unit_', '') for u in unit_list]
+
+    # Count traits — returns a Series: index = trait_name, value = count
+    traits_count = count_traits(unit_list)
+    traits_count_df = traits_count.reset_index()
+    traits_count_df.columns = ['trait_name', 'count']
+
+    # Load mapping: should be a dict like {trait_name: trait_id}
+    trait_mapping_df = get_mapping_table_for_traits_cached()    
+    trait_csv_df     = get_traits_csv_cached()
+
+    merged_df = traits_count_df.merge(trait_mapping_df, left_on='trait_name', right_on='name', how='left')
+    merged_df = traits_count_df.merge(trait_csv_df,     left_on='trait_name', right_on='name', how='left')
     
+    # Filter only the rows where count qualifies (i.e., count >= num_units)
+    qualified_df = merged_df[merged_df['count'] >= merged_df['num_units']]
+    
+    # For each trait_name, find the row with the highest qualifying num_units
+    idx = qualified_df.groupby('trait_name')['num_units'].idxmax()
+    result_df = qualified_df.loc[idx, ['trait_name', 'num_units','tier_current']].reset_index(drop=True)    
+
+    return result_df
