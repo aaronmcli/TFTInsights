@@ -33,8 +33,9 @@ def build_conditional_comp ( team_size, conditional_units, unit_pool:list, df:pd
     
     best_unit = max( target_prob, key=target_prob.get )
 
-    if target_prob[best_unit] <= association_threshold:
-        print (f"{best_unit} is a weak recommendation.")
+    # if target_prob[best_unit] <= association_threshold:
+    #     print (f"{best_unit} is a weak recommendation.")
+    print (f"{best_unit} has a {target_prob[best_unit]*100:.2f}% probab.")
     
     unit_pool_current.remove ( best_unit )
     conditional_units.append(best_unit)
