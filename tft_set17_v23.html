@@ -1,0 +1,316 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+.wrap{width:100%;padding:6px 4px 4px}
+h2{font-size:13px;font-weight:700;color:var(--color-text-primary);margin-bottom:3px}
+.topbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:3px;font-size:10px;color:var(--color-text-secondary)}
+.li{display:inline-flex;align-items:center;gap:3px}
+.ld{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.controls{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.counter-bar{display:flex;align-items:center;gap:6px;padding:3px 8px;background:var(--color-background-secondary);border-radius:5px;border:0.5px solid var(--color-border-tertiary);flex-wrap:wrap;flex:1}
+.counter-num{font-size:15px;font-weight:700;color:var(--color-text-primary);min-width:18px;text-align:center}
+.counter-label{font-size:10px;color:var(--color-text-secondary);white-space:nowrap}
+.counter-chips{display:flex;flex-wrap:wrap;gap:2px;flex:1;min-width:0}
+.sel-tag{font-size:9px;padding:1px 5px;border-radius:3px;border:1px solid transparent;display:inline-flex;align-items:center;gap:2px;cursor:pointer}
+.sel-tag:hover{opacity:0.75}
+.xt{opacity:0.55}
+.clear-btn{font-size:9px;padding:1px 7px;border-radius:4px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap}
+.clear-btn:hover{background:var(--color-background-secondary)}
+.scale-ctrl{display:inline-flex;align-items:center;gap:6px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:5px;padding:3px 8px;white-space:nowrap;flex-shrink:0}
+.scale-ctrl label{font-size:10px;color:var(--color-text-primary);font-weight:700}
+.scale-ctrl input[type=range]{width:100px;cursor:pointer;accent-color:#3a88f0}
+.scale-ctrl span{font-size:10px;color:var(--color-text-secondary);min-width:36px}
+.tbl-outer{width:100%;overflow-x:auto;overflow-y:visible}
+.tbl-scaler{transform-origin:top left;display:inline-block;white-space:nowrap}
+table{border-collapse:collapse;white-space:nowrap}
+th{padding:3px 5px;border:1px solid #7a9abf;background:#cde0f5;font-weight:700;font-size:10px;color:#1a3a5c;text-align:center;vertical-align:middle}
+th.corner{text-align:left;cursor:default;width:90px;min-width:90px}
+th.origin-th{cursor:grab;width:68px;min-width:68px;user-select:none}
+th.origin-th:active{cursor:grabbing}
+th.unique-th{width:90px;min-width:90px}
+.oname{display:block;font-size:10px;font-weight:700;line-height:1.2}
+.obp{display:flex;flex-wrap:wrap;gap:1px;justify-content:center;margin-top:2px}
+.obpn{font-size:7px;padding:0 3px;border-radius:2px;font-weight:700;background:#a8c8e8;color:#1a3a5c;border:1px solid #7a9abf;line-height:12px;transition:background .15s,color .15s}
+.obpn.reached{background:#f0a020;color:#fff;border-color:#c07800}
+.hdr-count{display:inline-block;font-size:8px;font-weight:700;padding:0 3px;border-radius:8px;margin-bottom:2px;background:#f0a020;color:#fff;min-width:14px;text-align:center;line-height:13px;visibility:hidden}
+.hdr-count.show{visibility:visible}
+td{padding:2px 3px;border:1px solid #7a9abf;vertical-align:top;transition:background .12s}
+td.cls{background:#cde0f5;font-weight:700;font-size:10px;color:#1a3a5c;text-align:center;vertical-align:middle;padding:3px 4px;width:90px;min-width:90px;border-right:2px solid #5580a8;cursor:grab;line-height:1.2;user-select:none}
+td.cls:active{cursor:grabbing}
+td.none-cls{background:#e8e8e8;color:#555;font-style:italic}
+.bp{display:flex;flex-wrap:wrap;gap:1px;margin-top:2px;justify-content:center}
+.bpn{font-size:7px;padding:0 3px;border-radius:2px;font-weight:700;background:#a8c8e8;color:#1a3a5c;border:1px solid #7a9abf;line-height:12px;transition:background .15s,color .15s}
+.bpn.reached{background:#f0a020;color:#fff;border-color:#c07800}
+.cls-count{display:inline-block;font-size:8px;font-weight:700;padding:0 3px;border-radius:8px;background:#f0a020;color:#fff;min-width:14px;text-align:center;line-height:13px;margin-top:2px;visibility:hidden}
+.cls-count.show{visibility:visible}
+tr.row-hover td{background:rgba(240,192,64,0.18)!important}
+tr.row-hover td.cls{background:rgba(240,192,64,0.35)!important}
+th.col-hover,td.col-hover{background:rgba(240,192,64,0.18)!important}
+th.col-hover{background:rgba(240,192,64,0.35)!important}
+tr.row-sel-hl td{background:rgba(240,160,32,0.07)}
+tr.row-sel-hl td.cls{background:rgba(240,160,32,0.18)}
+th.col-sel-hl,td.col-sel-hl{background:rgba(240,160,32,0.07)}
+th.col-sel-hl{background:rgba(240,160,32,0.18)}
+th.drag-over-col{outline:2px dashed #3a7abf;outline-offset:-2px}
+tr.drag-over-row td{outline:2px dashed #3a7abf}
+tr.dragging-row{opacity:0.35}
+th.dragging-col{opacity:0.35}
+.cell{display:flex;flex-direction:column;gap:1px}
+.ch{display:inline-flex;align-items:center;gap:2px;padding:1px 4px 1px 2px;border-radius:3px;font-size:9px;white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:box-shadow .1s,transform .08s}
+.ch:hover{transform:scale(1.05)}
+.ch img.portrait{width:18px;height:18px;border-radius:2px;object-fit:cover;flex-shrink:0;background:#ccc}
+.c1{background:#f0f0f0;color:#222;border-color:#999}
+.c2{background:#c8f5dc;color:#084d22;border-color:#3aaa66}
+.c3{background:#c4dcff;color:#083580;border-color:#3a88f0}
+.c4{background:#e8d4ff;color:#3a1080;border-color:#8844d0}
+.c5{background:#fff0b0;color:#604000;border-color:#c8960c}
+.ch.selected{box-shadow:0 0 0 2px #f0a020,0 0 5px 1px rgba(240,160,32,0.4);transform:scale(1.06);position:relative;z-index:2}
+.tt{position:fixed;z-index:9999;background:#1a2a3a;color:#e8f0f8;font-size:10px;line-height:1.5;padding:7px 10px;border-radius:5px;border:1px solid #4a6a8a;max-width:300px;white-space:normal;pointer-events:none;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.tt-name{font-weight:700;color:#a8d0f8;font-size:11px;margin-bottom:2px}
+.tt-sub{font-size:9px;color:#88aac8;margin-bottom:4px}
+.tt-section{font-size:9px;color:#a8d0f8;font-weight:700;margin:5px 0 3px}
+.tt-desc{font-size:10px;color:#ddeeff;margin-bottom:3px}
+.tt-items{display:flex;gap:6px;align-items:flex-start;margin:2px 0}
+.tt-item-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;width:50px}
+.tt-item-wrap img{width:30px;height:30px;border-radius:4px;border:1px solid #4a6a8a;display:block}
+.tt-item-wrap span{font-size:8px;color:#88aac8;text-align:center;line-height:1.2;word-break:break-word}
+.tt-origin-divider{border-top:1px solid #2a4a6a;margin:5px 0}
+.tt-bps{margin-top:3px}
+.tt-bps ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.tt-bps ul li{font-size:9px;color:#c0d8f0;display:flex;align-items:baseline;gap:5px}
+.tt-bps ul li b{background:#2a4a6a;color:#a8d0f8;font-size:8px;padding:0 4px;border-radius:3px;line-height:14px;white-space:nowrap;flex-shrink:0}
+</style>
+<div class="wrap">
+  <h2>TFT Set 17: Space Gods — Class × Origin</h2>
+  <div class="topbar">
+    <span style="font-weight:700">Cost:</span>
+    <span class="li"><span class="ld" style="background:#999;border:1px solid #777"></span>1</span>
+    <span class="li"><span class="ld" style="background:#3aaa66"></span>2</span>
+    <span class="li"><span class="ld" style="background:#3a88f0"></span>3</span>
+    <span class="li"><span class="ld" style="background:#8844d0"></span>4</span>
+    <span class="li"><span class="ld" style="background:#c8960c"></span>5</span>
+    <span style="margin-left:6px">Drag to reorder · Hover for details · Click to select</span>
+  </div>
+  <div class="controls">
+    <div class="counter-bar">
+      <div class="counter-num" id="cnum">0</div>
+      <div class="counter-label">selected</div>
+      <div class="counter-chips" id="cchips"></div>
+      <button class="clear-btn" onclick="clearAll()">Clear all</button>
+    </div>
+    <div class="scale-ctrl">
+      <label>Scale</label>
+      <input type="range" id="scaleSlider" min="40" max="200" value="100" step="1" oninput="onSlider(this.value)">
+      <span id="scaleLabel">100%</span>
+    </div>
+  </div>
+  <div class="tbl-outer" id="tblOuter">
+    <div class="tbl-scaler" id="tblScaler">
+      <table id="tbl"></table>
+    </div>
+  </div>
+</div>
+<div class="tt" id="tt"></div>
+<script>
+const CBASE="https://cdn.mobalytics.gg/assets/tft/images/champions/icons/set17/";
+const IBASE="https://cdn.mobalytics.gg/assets/tft/images/game-items/set17/";
+
+// Verified exact slugs from live Mobalytics pages
+const ITEM_SLUGS={
+  "Spear of Shojin":"spear-of-shojin2",
+  "Blue Buff":"blue-buff2",
+  "Void Staff":"voidstaff",
+  "Spirit Visage":"spiritvisage",
+  "Nashor's Tooth":"nashor's-tooth",
+  "Kraken's Fury":"krakensfury",
+  "Guinsoo's Rageblade":"guinsoos-rageblade",
+  "Archangel's Staff":"archangels-staff",
+  "Rabadon's Deathcap":"rabadons-deathcap",
+  "Sterak's Gage":"sterak's-gage",
+  "Titan's Resolve":"titans-resolve",
+  "Dragon's Claw":"dragons-claw",
+  "Red Buff":"redbuff",
+  "Steadfast Heart":"steadfast-hammer",
+  "Striker's Flail":"guardbreaker",
+  "Bloodthirster":"bloodthirster",
+  "Hand of Justice":"hand-of-justice",
+  "Jeweled Gauntlet":"jeweled-gauntlet",
+  "Edge of Night":"edge-of-night",
+  "Infinity Edge":"infinity-edge",
+  "Last Whisper":"last-whisper",
+  "Giant Slayer":"giant-slayer",
+  "Quicksilver":"quicksilver",
+  "Deathblade":"deathblade",
+  "Ionic Spark":"ionic-spark",
+  "Gargoyle Stoneplate":"gargoyle-stoneplate",
+  "Sunfire Cape":"sunfire-cape",
+  "Warmog's Armor":"warmogs-armor",
+  "Protector's Vow":"fimbulwinter",
+  "Bramble Vest":"bramble-vest",
+  "Evenshroud":"evenshroud",
+  "Adaptive Helm":"adaptive-helm",
+  "Morellonomicon":"morellonomicon",
+  "Hextech Gunblade":"hextech-gunblade",
+  "Bloodthirster":"bloodthirster"
+};
+
+function itemSlug(name){
+  if(ITEM_SLUGS[name]) return ITEM_SLUGS[name];
+  // fallback: lowercase, remove apostrophes, spaces→hyphens
+  return name.toLowerCase().replace(/'/g,'').replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+}
+
+const champSlugs={"Aatrox":"aatrox","Akali":"akali","Aurelion Sol":"aurelionsol","Aurora":"aurora","Bard":"bard","Bel'Veth":"belveth","Blitzcrank":"blitzcrank","Briar":"briar","Caitlyn":"caitlyn","Cho'Gath":"chogath","Corki":"corki","Diana":"diana","Ezreal":"ezreal","Fiora":"fiora","Fizz":"fizz","Gnar":"gnar","Gragas":"gragas","Graves":"graves","Gwen":"gwen","Illaoi":"illaoi","Jax":"jax","Jhin":"jhin","Jinx":"jinx","Kai'Sa":"kaisa","Karma":"karma","Kindred":"kindred","LeBlanc":"leblanc","Leona":"leona","Lissandra":"lissandra","Lulu":"lulu","Maokai":"maokai","Master Yi":"masteryi","Meepsie":"meepsie","Milio":"milio","Miss Fortune":"missfortune","Mordekaiser":"mordekaiser","Morgana":"morgana","Nami":"nami","Nasus":"nasus","Nunu":"nunu","Ornn":"ornn","Pantheon":"pantheon","Poppy":"poppy","Pyke":"pyke","Rammus":"rammus","Rek'Sai":"reksai","Rhaast":"rhaast","Riven":"riven","Samira":"samira","Shen":"shen","Sona":"sona","Talon":"talon","Tahm Kench":"tahmkench","Teemo":"teemo","The Mighty Mech":"the-mighty-mech","Twisted Fate":"twistedfate","Urgot":"urgot","Veigar":"veigar","Vex":"vex","Viktor":"viktor","Xayah":"xayah","Zed":"zed","Zoe":"zoe"};
+const UNIQUE_ORIGINS=new Set(["Oracle","Gun Goddess","Redeemer","Divine Duelist","Bulwark","Commander","Dark Lady","Doomer","Factory New","Galaxy Hunter","Party Animal"]);
+const classBP={"Bastion":{desc:"Your team gains 12 Armor and Magic Resist.\nBastions gain more, and the value doubles in the first 10 seconds of combat.",tiers:{"2":"16 Armor & MR","4":"35 Armor & MR","6":"55 Armor & MR; Non-Bastions gain an additional 20 Armor & MR."}},"Challenger":{desc:"Your team gains 10% Attack Speed. Challengers gain bonus Attack Speed. When their target dies, Challengers dash to a new target and increase their Attack Speed bonus by 50% for 2.50 seconds.",tiers:{"2":"15% AS","3":"22% AS","4":"30% AS","5":"40% AS"}},"Marauder":{desc:"Your team gains 5% Omnivamp. Marauders gain more Omnivamp, Attack Damage, and their Omnivamp overhealing is converted into Shield (up to 25% max Health.)",tiers:{"2":"5% Omnivamp, 20% AD","4":"7% Omnivamp, 30% AD","6":"10% Omnivamp, 40% AD"}},"Brawler":{desc:"Your team gains 7% Health. Brawlers gain more.",tiers:{"2":"+25% maximum Health","4":"+45% maximum Health","6":"+65% maximum Health"}},"Replicator":{desc:"Replicator abilities occur a second time at reduced effectiveness.",tiers:{"2":"25% strength","4":"50% strength"}},"Shepherd":{desc:"Shepherds summon the Bond of the Stars to aid them in battle.\nBia and Bayin's power are increased by the total star level of Shepherd.",tiers:{"3":"Summon Bia","5":"Summon Bayin","7":"Bia and Bayin's bond grows deeper"}},"Vanguard":{desc:"Vanguards gain 5% Durability while Shielded.\nCombat start and 50% Health: Gain a max Health Shield for 10 seconds.\n10% DR while Shielded",tiers:{"2":"16% max Health","4":"28% max Health","6":"40% max Health"}},"Channeler":{desc:"Innate: Channelers gain 20% additional Mana from all sources.\nYour team gains Mana Regen, increased for Channelers.",tiers:{"2":"1% Mana Regen | 3% Mana Regen","3":"1% Mana Regen | 4% Mana Regen","4":"2% Mana Regen | 6% Mana Regen","5":"2% Mana Regen | 7% Mana Regen"}},"Voyager":{desc:"Combat Start: Your Tanks and Fighters gain a Shield for 15 seconds. Your other allies gain Damage Amp. Voyagers gain double.",tiers:{"2":"Active","4":"Stronger","6":"Strongest"}},"Fateweaver":{desc:"Innate: Fateweavers have Precision.",tiers:{"2":"Chance effects on abilities are Lucky.","4":"Gain 20% Crit Chance and 10% Crit Damage. Critical strikes are also Lucky."}},"Rogue":{desc:"Rogues gain Attack Damage and Ability Power. The first time they fall below 50% health, they slip into shadows. Enemies targeting them are redirected to a nearby unit, preferring Tanks.",tiers:{"2":"15% AD AP","3":"30% AD AP","4":"45% AD AP","5":"60% AD AP"}},"Sniper":{desc:"Snipers gain Damage Amp, increased against targets farther away.",tiers:{"2":"18% DA; +2% DA per hex","3":"24% DA; +3% DA per hex","4":"28% DA; +4% DA per hex","5":"32% DA; +5% DA per hex"}},"Eradicator":{desc:"Enemies have 14% less Armor and Magic Resist.",tiers:{"1":"Bonus Effect","2":"Stronger","3":"Stronger","4":"Strongest"}},"Attack Fighter":{desc:"Zed is obtained from the Invader Zed augment. While at least one clone is alive, Zed gains 40% bonus Attack Damage.",tiers:{"1":"Bonus active"}}};
+const originBP={"Arbiter":{desc:"Scribe a unique divine law, allowing you to choose an effect to apply to Arbiters when a chosen cause occurs.",tiers:{"2":"Choose a cause and effect for your law","3":"Effects are stronger."}},"Dark Star":{desc:"Summon a Black Hole.",tiers:{"2":"Dark Stars create a black hole that consumes enemies at 10% max health.","4":"AND they gain 30% AD & AP.","6":"AND the strongest Dark Star unit goes supermassive, gaining 100% effectiveness from Dark Star, and creates 2 minor Black Holes.","9":"All Dark Stars are supermassive. At level 10, CONSUME EVERYONE."}},"Meeple":{desc:"Astronauts attract Meeps that empower Astronaut abilities in meepy ways. They also gain bonus Health.\nCloning time = Champion cost",tiers:{"3":"2%, 125 Health","5":"3%, 250 Health","7":"4%, 400 Health. Create a Cloning Slot on your bench.","10":"6%, 1000 Health. SUMMON THE FOUR MEEPLORDS!"}},"Space Groove":{desc:"Groovians can enter the Groove. While in it, they gain Attack Speed and max Health Regen, increased per Groovian on your team.",tiers:{"3":"All Groovians start combat in the Groove for 3 seconds.","5":"Each second spent in the Groove grants 3% stacking AD & AP.","7":"Increase these effects by 20%!"}},"Timebreaker":{desc:"Timebreakers give free rerolls or XP.",tiers:{"2":"When you lose, gain free rerolls. When you win, store XP in a Temporal Core.","3":"Stronger rewards","4":"AND Allies gain 15% Attack Speed."}},"Anima":{desc:"After losing a player combat, gain 15 Tech, plus additional Tech equal to 5 times the length of your loss streak. Additionally, gain 2 Tech per Anima takedown.\nEach time Animas get 100 Tech, they prototype new Anima Weapons.",tiers:{"3":"Start Researching!","6":"Gain a loot Orb upon win"}},"Psionic":{desc:"Gain Psionic items that can be equipped to any ally.",tiers:{"2":"Gain the Psionic item 1","4":"Gain the Psionic item 2, Psionic items gain extra effects on Psionic units"}},"Mecha":{desc:"Innate: Mecha units can transform into their Ultimate form, upgrading their ability and gaining 60% Health. Transformed Mechas take up two team slots and count twice for the Mecha trait.",tiers:{"3":"Energy Cells: Mechas gain 20% AD & AP.","4":"Overclocked Cells: Increased to 35% AD & AP.","6":"Precision Engineering: +1 max team size"}},"N.O.V.A.":{desc:"Aatrox: Ally Damage 30% Shred and Sunders enemies\nCaitlyn: Grant allies 20% Attack Speed\nAkali: Allies gain Precision\nMaokai: Allies heal 15% max Health\nKindred: Shield the strongest Tank for 800\nEmblem: Allies deal 10% stacking bonus true damage",tiers:{"2":"6 seconds into combat, N.O.V.A. grant a power surge to allies based on champions.","5":"Gain a Striker selector."}},"Primordian":{desc:"Spawn swarmlings. 8% of damage taken contributes to damage dealt.",tiers:{"2":"Dealing damage spawns Swarmlings based on Primordian star level.","3":"Spawn even more Swarmlings! Each round, gain a random 1 or 2-cost champion."}},"Stargazer":{desc:"Stargazers chart a different constellation every game.",tiers:{"2":"2 empowered hexes active","4":"4 empowered hexes active"}},"Oracle":{desc:"Every 3 rounds, Tahm Kench grants a reward!",tiers:{"1":"Bonus Effect"}},"Gun Goddess":{desc:"When you field Miss Fortune, choose between Channeler Mode, Challenger Mode, and Replicator Mode.",tiers:{"1":"Bonus Effect"}},"Redeemer":{desc:"Rhaast-only unique origin. Rhaast has no class.",tiers:{"1":"Bonus Effect"}},"Divine Duelist":{desc:"You heal for 15% of player damage you deal. Fiora always wins a one on one duel.",tiers:{"1":"Bonus Effect"}},"Bulwark":{desc:"Summon a placeable relic. At the start of combat, it grants adjacent allies a 18% max Health shield and 20% Attack Speed.",tiers:{"1":"Bonus Effect"}},"Commander":{desc:"Sona gives you a random Command Mod every 2 rounds which allows you to alter the way an ally behaves during combat.",tiers:{"1":"Bonus Effect"}},"Dark Lady":{desc:"Allies take 5% less damage from abilities, increased to 10% while Morgana is in Dark Form.",tiers:{"1":"Bonus Effect"}},"Doomer":{desc:"Combat Start: Mark all enemies with Doom.\nThe first time enemies are damaged each combat, their Doom is consumed, stealing 8% Attack Damage and Ability Power from them and granting it to your strongest Vex.",tiers:{"1":"Bonus Effect"}},"Factory New":{desc:"After participating in combat, open an armory to purchase a permanent upgrade for your strongest Graves.",tiers:{"1":"Bonus Effect"}},"Galaxy Hunter":{desc:"Zed is obtained from the Invader Zed augment. While at least one clone is alive, Zed gains 40% bonus Attack Damage.",tiers:{"1":"Bonus Effect"}},"Party Animal":{desc:"Once per combat, after falling below 45% percent Health, become untargetable and repair 15% max Health per second.",tiers:{"1":"Bonus Effect"}}};
+const champItems={"Aatrox":["Warmog's Armor","Sunfire Cape","Gargoyle Stoneplate"],"Akali":["Hand of Justice","Jeweled Gauntlet","Edge of Night"],"Aurelion Sol":["Spear of Shojin","Jeweled Gauntlet","Nashor's Tooth"],"Aurora":["Spear of Shojin","Jeweled Gauntlet","Nashor's Tooth"],"Bard":["Spear of Shojin","Adaptive Helm","Void Staff"],"Bel'Veth":["Quicksilver","Hand of Justice","Giant Slayer"],"Blitzcrank":["Bloodthirster","Rabadon's Deathcap","Ionic Spark"],"Briar":["Bloodthirster","Titan's Resolve","Hand of Justice"],"Caitlyn":["Infinity Edge","Last Whisper","Striker's Flail"],"Cho'Gath":["Dragon's Claw","Bramble Vest","Spirit Visage"],"Corki":["Spear of Shojin","Infinity Edge","Last Whisper"],"Diana":["Bloodthirster","Titan's Resolve","Guinsoo's Rageblade"],"Ezreal":["Blue Buff","Jeweled Gauntlet","Striker's Flail"],"Fiora":["Sterak's Gage","Hand of Justice","Edge of Night"],"Fizz":["Hand of Justice","Giant Slayer","Quicksilver"],"Gnar":["Guinsoo's Rageblade","Kraken's Fury","Deathblade"],"Gragas":["Ionic Spark","Gargoyle Stoneplate","Protector's Vow"],"Graves":["Bloodthirster","Hand of Justice","Quicksilver"],"Gwen":["Hand of Justice","Jeweled Gauntlet","Blue Buff"],"Illaoi":["Bramble Vest","Evenshroud","Warmog's Armor"],"Jax":["Sunfire Cape","Ionic Spark","Evenshroud"],"Jhin":["Deathblade","Guinsoo's Rageblade","Infinity Edge"],"Jinx":["Guinsoo's Rageblade","Kraken's Fury","Last Whisper"],"Kai'Sa":["Guinsoo's Rageblade","Jeweled Gauntlet","Void Staff"],"Karma":["Spear of Shojin","Jeweled Gauntlet","Nashor's Tooth"],"Kindred":["Giant Slayer","Last Whisper","Red Buff"],"LeBlanc":["Blue Buff","Jeweled Gauntlet","Nashor's Tooth"],"Leona":["Spirit Visage","Sunfire Cape","Protector's Vow"],"Lissandra":["Blue Buff","Rabadon's Deathcap","Morellonomicon"],"Lulu":["Spear of Shojin","Void Staff","Jeweled Gauntlet"],"Maokai":["Protector's Vow","Gargoyle Stoneplate","Spirit Visage"],"Master Yi":["Edge of Night","Hand of Justice","Guinsoo's Rageblade"],"Meepsie":["Spirit Visage","Ionic Spark","Dragon's Claw"],"Milio":["Blue Buff","Void Staff","Striker's Flail"],"Miss Fortune":["Spear of Shojin","Infinity Edge","Last Whisper"],"Mordekaiser":["Warmog's Armor","Spirit Visage","Sterak's Gage"],"Morgana":["Hand of Justice","Rabadon's Deathcap","Morellonomicon"],"Nami":["Spear of Shojin","Jeweled Gauntlet","Nashor's Tooth"],"Nasus":["Bloodthirster","Guinsoo's Rageblade","Titan's Resolve"],"Nunu":["Bramble Vest","Dragon's Claw","Spirit Visage"],"Ornn":["Bramble Vest","Dragon's Claw","Spirit Visage"],"Pantheon":["Ionic Spark","Sunfire Cape","Evenshroud"],"Poppy":["Ionic Spark","Sunfire Cape","Evenshroud"],"Pyke":["Spear of Shojin","Morellonomicon","Ionic Spark"],"Rammus":["Bramble Vest","Protector's Vow","Steadfast Heart"],"Rek'Sai":["Bloodthirster","Titan's Resolve","Sterak's Gage"],"Rhaast":["Bloodthirster","Titan's Resolve","Sterak's Gage"],"Riven":["Bloodthirster","Titan's Resolve","Blue Buff"],"Samira":["Giant Slayer","Last Whisper","Infinity Edge"],"Shen":["Hand of Justice","Adaptive Helm","Bloodthirster"],"Sona":["Archangel's Staff","Archangel's Staff","Hextech Gunblade"],"Talon":["Edge of Night","Infinity Edge","Red Buff"],"Tahm Kench":["Evenshroud","Warmog's Armor","Gargoyle Stoneplate"],"Teemo":["Morellonomicon","Void Staff","Hextech Gunblade"],"The Mighty Mech":["Bloodthirster","Sterak's Gage","Titan's Resolve"],"Twisted Fate":["Guinsoo's Rageblade","Morellonomicon","Void Staff"],"Urgot":["Bloodthirster","Sterak's Gage","Infinity Edge"],"Veigar":["Spear of Shojin","Rabadon's Deathcap","Hextech Gunblade"],"Vex":["Spear of Shojin","Jeweled Gauntlet","Nashor's Tooth"],"Viktor":["Spear of Shojin","Archangel's Staff","Void Staff"],"Xayah":["Guinsoo's Rageblade","Kraken's Fury","Infinity Edge"],"Zed":["Edge of Night","Infinity Edge","Hand of Justice"],"Zoe":["Spear of Shojin","Morellonomicon","Hextech Gunblade"]};
+const rawChamps=[
+  {n:"Aatrox",o:"N.O.V.A.",cl:["Bastion"],c:1,p:"Shred Aura — Ally damage sunders and shreds enemy armor.",a:"World Ender — Transforms into Darkin form, deals AoE damage and heals."},
+  {n:"Akali",o:"N.O.V.A.",cl:["Marauder"],c:2,p:"Assassin's Mark — Gains Precision, empowering abilities.",a:"Five Point Strike — Dashes to target, strikes multiple times dealing AD damage."},
+  {n:"Aurelion Sol",o:"Mecha",cl:["Channeler"],c:4,p:"Innate: Mecha — Can transform into Ultimate form gaining 60% HP.",a:"Breath of Light — Channels a beam dealing AP magic damage."},
+  {n:"Aurora",o:"Anima",cl:["Voyager"],c:3,p:"Spirit Blossom — Gains a shield when dropping below 50% HP.",a:"Rift Hop — Blinks to safety then launches a spectral wave dealing AP damage."},
+  {n:"Bard",o:"Meeple",cl:["Channeler"],c:5,p:"Meep Empowerment — Meeps enhance Bard's cosmic binding.",a:"Cosmic Binding — Fires a projectile that stuns and deals AP damage."},
+  {n:"Bel'Veth",o:"Primordian",cl:["Challenger","Marauder"],c:2,p:"Endless Banquet — Spawns Voidlings on takedowns.",a:"Death in Lavender — Leaps onto target dealing AD damage and spawning Voidlings."},
+  {n:"Blitzcrank",o:"Party Animal",cl:["Vanguard"],c:5,p:"Party Crasher Bolts — Passively fires bolts; fires 4× faster while in The Groove.",a:"Party Crasher — Fires passive bolts. In The Groove fires 4× faster with bonus effects."},
+  {n:"Briar",o:"Anima",cl:["Rogue"],c:1,p:"Bloodrush Stacks — Gains stacking damage buff on takedowns.",a:"Bloodrush — Dashes to nearest enemy, bites them, dealing physical damage and healing."},
+  {n:"Caitlyn",o:"N.O.V.A.",cl:["Fateweaver"],c:1,p:"Precision — Lucky shots deal bonus damage to the target.",a:"Headhunter — Long-range sniper shot dealing massive physical damage to the farthest enemy."},
+  {n:"Cho'Gath",o:"Dark Star",cl:["Brawler"],c:1,p:"Feast — Gains permanent max HP on executing enemies.",a:"Rupture — Creates a fissure knocking up and dealing AP damage in a line."},
+  {n:"Corki",o:"Meeple",cl:["Fateweaver"],c:4,p:"Lucky Shots — Corki's Fateweaver precision empowers bomb crits.",a:"Package Delivery — Drops a bomb dealing AP magic damage in an area."},
+  {n:"Diana",o:"Arbiter",cl:["Challenger"],c:3,p:"Moonsilver Blade — Every 3rd attack deals bonus magic damage.",a:"Pale Cascade — Summons encircling orbs dealing AP damage; rotation scales with AS."},
+  {n:"Ezreal",o:"Timebreaker",cl:["Sniper"],c:1,p:"Rising Spell Force — Hitting abilities grants stacking AS.",a:"Temporal Rift Shot — Fires a shot through time dealing AP damage and marking targets."},
+  {n:"Fiora",o:"Divine Duelist",cl:["Marauder"],c:5,p:"Duelist's Mark — Reveals Vitals on target; striking them deals bonus true damage.",a:"Blade Waltz — Dashes between enemies dealing AD physical damage, becomes untargetable."},
+  {n:"Fizz",o:"Meeple",cl:["Rogue"],c:3,p:"Nimble Fighter — Dodges the first attack from each enemy.",a:"Mega Meep — Jumps to target dealing AP damage; summons a Meep that knocks them up."},
+  {n:"Gnar",o:"Meeple",cl:["Sniper"],c:2,p:"Rage Gene — Fills Rage meter on attacks; transforms at full Rage.",a:"GNAR! — Transforms into Mega Gnar gaining HP and dealing AoE physical damage."},
+  {n:"Gragas",o:"Psionic",cl:["Brawler"],c:2,p:"Happy Hour — Heals a portion of HP each time he casts.",a:"Barrel Roll — Rolls a cask that explodes dealing AP magic damage in an area."},
+  {n:"Graves",o:"Factory New",cl:["Sniper"],c:5,p:"New Destiny — After each combat, opens an armory to upgrade Graves.",a:"Quick Draw — Fires explosive shells dealing AD physical damage in a cone."},
+  {n:"Gwen",o:"Space Groove",cl:["Rogue"],c:2,p:"Hallowed Mist — Immune to magic damage from outside the Mist.",a:"Snip Snip! — Deals AP magic damage in a cone, number of snips scales with AS."},
+  {n:"Illaoi",o:"Anima",cl:["Vanguard","Shepherd"],c:3,p:"Prophet of an Elder God — Summons a Tentacle when she casts.",a:"Leap of Faith — Slams down dealing AP damage and summoning a Tentacle."},
+  {n:"Jax",o:"Stargazer",cl:["Bastion"],c:2,p:"Dodge — Periodically dodges all incoming attacks for a brief moment.",a:"Grandmaster's Might — Empowers attacks to deal bonus AP damage; briefly dodges incoming attacks."},
+  {n:"Jhin",o:"Dark Star",cl:["Eradicator","Sniper"],c:5,p:"Whisper — Every 4th shot deals massive bonus physical damage.",a:"Space Opera — Passive: 4th shot deals massive damage. Active: fires 4 enhanced shots."},
+  {n:"Jinx",o:"Anima",cl:["Challenger"],c:2,p:"Get Excited! — Gains bonus AS and AD each time she gets a takedown.",a:"Get Excited! — Fires a Super Mega Death Rocket dealing AP damage in a line."},
+  {n:"Kai'Sa",o:"Dark Star",cl:["Rogue"],c:3,p:"Second Skin — Void charges stack on enemies, exploding for bonus damage.",a:"Icathian Rain — Launches a swarm of missiles at nearby enemies dealing AD physical damage."},
+  {n:"Karma",o:"Dark Star",cl:["Voyager"],c:4,p:"Gathering Fire — Reduces ability cooldown when hitting enemies with basic attacks.",a:"Inspire — Fires a tether dealing AP damage and slowing enemies."},
+  {n:"Kindred",o:"N.O.V.A.",cl:["Challenger"],c:4,p:"Mounting Dread — Wolf marks a target; Lamb's next hit on it deals massive bonus damage.",a:"Mounting Dread — Wolf marks a target; Lamb's next attack on the marked unit deals bonus damage."},
+  {n:"LeBlanc",o:"Arbiter",cl:["Shepherd"],c:4,p:"Mirror Image — On first death, creates a clone that fights briefly.",a:"Sigil of Malice — Marks target with a sigil; next ability hit detonates it for AP damage."},
+  {n:"Leona",o:"Arbiter",cl:["Vanguard"],c:1,p:"Sunlight — When Leona stuns an enemy, allied attacks deal bonus magic damage to it.",a:"Solar Flare — Calls down solar energy, stunning and dealing AP damage in an area."},
+  {n:"Lissandra",o:"Dark Star",cl:["Shepherd","Replicator"],c:1,p:"Iceborn — Nearby enemies are slowed whenever Lissandra casts.",a:"Ice Shard Blizzard — Shatters into ice dealing AP damage; Replicator fires a second time."},
+  {n:"Lulu",o:"Stargazer",cl:["Replicator"],c:3,p:"Whimsy Support — Buffs an ally when she polymorphs an enemy.",a:"Whimsy — Polymorphs an enemy disabling them; also buffs an ally with bonus stats."},
+  {n:"Maokai",o:"N.O.V.A.",cl:["Brawler"],c:3,p:"Sap Magic — Heals himself every few times nearby allies cast abilities.",a:"Grasp of the Undead — AoE stun dealing AP damage; heals nearby allies."},
+  {n:"Master Yi",o:"Psionic",cl:["Marauder"],c:4,p:"Double Strike — Every 7th attack strikes twice.",a:"Wuju Style — Alpha Strikes multiple targets dealing AD damage while briefly untargetable."},
+  {n:"Meepsie",o:"Meeple",cl:["Shepherd","Voyager"],c:2,p:"Meep Magnet — Attracts extra Meeps that enhance Meepsie's abilities.",a:"Meep Barrage — Launches a volley of Meeps at enemies dealing AP magic damage."},
+  {n:"Milio",o:"Timebreaker",cl:["Fateweaver"],c:2,p:"Cozy Campfire — Heals allies around him when he casts.",a:"Ultra Mega Fire Kick — Kicks a fire-ball bouncing between enemies dealing AP damage."},
+  {n:"Miss Fortune",o:"Gun Goddess",cl:["Sniper"],c:3,p:"Love Tap — First attack against each enemy deals bonus physical damage.",a:"Gun Goddess Mode — Choose Channeler, Challenger, or Replicator: gains that trait and unique ability."},
+  {n:"Mordekaiser",o:"Dark Star",cl:["Channeler","Vanguard"],c:2,p:"Iron Man — Generates a shield based on AP when dealing magic damage.",a:"Realm of Death — Pulls the strongest enemy into the Death Realm for a 1v1 isolation."},
+  {n:"Morgana",o:"Dark Lady",cl:["Eradicator"],c:5,p:"Grievous Shackles — Enemies stunned by her abilities take bonus magic damage.",a:"Dark Binding / Soul Shackles — Chains an enemy; in Dark Form chains all nearby enemies."},
+  {n:"Nami",o:"Space Groove",cl:["Replicator"],c:4,p:"Surging Tides — Heals allies when she hits them with abilities.",a:"Tidal Wave — Launches a wave knocking up and dealing AP magic damage."},
+  {n:"Nasus",o:"Space Groove",cl:["Vanguard"],c:1,p:"Soul Eater — Gains permanent AD stacks on killing enemies.",a:"Siphoning Strike — Empowered attack dealing scaling AD damage based on souls collected."},
+  {n:"Nunu",o:"Stargazer",cl:["Vanguard"],c:4,p:"Consume — Heals Nunu when he eats an enemy or ally.",a:"Absolute Zero — Channels a massive snowball slowing and dealing AP damage."},
+  {n:"Ornn",o:"Space Groove",cl:["Bastion"],c:3,p:"Living Forge — Crafts a temporary completed item for an ally at combat start.",a:"Call of the Forge God — Charges and rams enemies dealing AP damage and stunning them."},
+  {n:"Pantheon",o:"Timebreaker",cl:["Brawler","Replicator"],c:2,p:"Aegis Protection — Blocks the next incoming attack periodically.",a:"Grand Starfall — Leaps and crashes down dealing AP magic damage in an area."},
+  {n:"Poppy",o:"Meeple",cl:["Bastion"],c:1,p:"Iron Ambassador — Throws her buckler which can bounce to hit an additional enemy.",a:"Buckler Toss — Throws her shield dealing AP damage and granting herself a shield."},
+  {n:"Pyke",o:"Psionic",cl:["Voyager"],c:2,p:"Gift of the Drowned Ones — Heals back damage taken below a threshold.",a:"Death from Below — Executes low-HP enemies in a cross-shaped area dealing AD damage."},
+  {n:"Rammus",o:"Meeple",cl:["Bastion"],c:4,p:"Spiked Shell — Reflects a portion of physical damage back to attackers.",a:"Powerball — Rolls into enemies dealing AP magic damage and taunting the target."},
+  {n:"Rek'Sai",o:"Primordian",cl:["Brawler"],c:1,p:"Furious Biter — Heals on basic attack based on missing HP.",a:"Void Rush — Tunnels underground and bursts up at the target dealing AD damage."},
+  {n:"Rhaast",o:"Redeemer",cl:[],c:3,p:"The Darkin Scythe — Gains damage and healing as Rhaast, no class applies.",a:"Umbral Trespass — Ruptures a target dealing AP damage and healing for a portion dealt."},
+  {n:"Riven",o:"Timebreaker",cl:["Rogue"],c:4,p:"Runic Blade — Accumulates runic energy, empowering next basic attack.",a:"Broken Wings — Dashes and strikes multiple times, then leaps dealing AP damage in an AoE."},
+  {n:"Samira",o:"Space Groove",cl:["Sniper"],c:3,p:"Style — Builds a Style grade on each unique ability or attack.",a:"Inferno Trigger — Spins and fires at all nearby enemies dealing AD physical damage."},
+  {n:"Shen",o:"Bulwark",cl:["Bastion"],c:5,p:"Ki Barrier — Gains a shield after using his ability.",a:"Stand United — Shields the lowest-HP ally and teleports to them."},
+  {n:"Sona",o:"Commander",cl:["Shepherd"],c:5,p:"Power Chord — Every few casts, empowers next attack with a bonus effect.",a:"Crescendo — Stuns all nearby enemies and deals AP damage in an area."},
+  {n:"Talon",o:"Stargazer",cl:["Rogue"],c:1,p:"Blade's End — Stacks wounds on enemies; at max stacks they bleed for bonus damage.",a:"Assassinate — Leaps to target from behind, dealing massive AD physical damage."},
+  {n:"Tahm Kench",o:"Oracle",cl:["Brawler"],c:4,p:"Thick Skin — Converts post-mitigation damage to grey health.",a:"Devour — Swallows the nearest ally to protect them briefly, then spits them at enemies."},
+  {n:"Teemo",o:"Space Groove",cl:["Shepherd"],c:1,p:"Toxic Shot — Basic attacks poison enemies, dealing magic damage over time.",a:"Noxious Trap — Places invisible mushroom traps that slow and poison enemies."},
+  {n:"The Mighty Mech",o:"Mecha",cl:["Voyager"],c:4,p:"Innate: Mecha — Can transform into Ultimate form gaining 60% HP.",a:"Ultimate Mech Form — Transforms into a massive form with upgraded area attacks."},
+  {n:"Twisted Fate",o:"Stargazer",cl:["Fateweaver"],c:1,p:"Lucky Draw — Applies a Lucky bonus to his card throw when Fateweaver is active.",a:"Wild Cards — Throws three cards in a spread each dealing AP magic damage."},
+  {n:"Urgot",o:"Mecha",cl:["Brawler","Marauder"],c:3,p:"Zaun-Touched Hex Claw — Executes enemies below a HP threshold.",a:"Purge — Fires rapidly at nearest enemy. Mecha form upgrades to area fire."},
+  {n:"Veigar",o:"Meeple",cl:["Replicator"],c:1,p:"Phenomenal Evil Power — Permanently gains AP whenever he or a nearby enemy casts an ability.",a:"Primordial Burst — Deals massive AP damage to the enemy with the lowest current HP."},
+  {n:"Vex",o:"Doomer",cl:["Eradicator"],c:5,p:"Doom — At combat start, marks all enemies with Doom.",a:"Personal Space — Fears nearby enemies and unleashes a wave of shadow dealing AP damage."},
+  {n:"Viktor",o:"Psionic",cl:["Channeler"],c:3,p:"Glorious Evolution — Gains evolving power based on kills.",a:"Death Ray — Channels a homing death beam dealing expanding AoE AP damage."},
+  {n:"Xayah",o:"Stargazer",cl:["Sniper"],c:4,p:"Clean Cuts — After casting, next few attacks hit all enemies in their path.",a:"Bladecaller — Calls back feathers dealing AD damage and rooting enemies."},
+  {n:"Zed",o:"Galaxy Hunter",cl:["Attack Fighter"],c:5,p:"Living Shadow — Creates shadow clones that mimic attacks.",a:"Living Shadow — Creates shadow clones that attack alongside Zed. Gains 40% bonus AD while a clone lives."},
+  {n:"Zoe",o:"Arbiter",cl:["Channeler"],c:2,p:"More Sparkles! — Every few basic attacks, fires a piercing bolt of energy.",a:"Sleepy Trouble Bubble — Lobs a bubble putting the target to sleep; next hit deals bonus AP damage."}
+];
+const MAIN_ORIGINS=["Arbiter","Dark Star","Meeple","Space Groove","Timebreaker","Anima","Psionic","Mecha","N.O.V.A.","Primordian","Stargazer"];
+const CLASS_ORDER=["Bastion","Challenger","Marauder","Brawler","Replicator","Shepherd","Vanguard","Channeler","Voyager","Fateweaver","Rogue","Sniper","Eradicator","None"];
+const costCls=["","c1","c2","c3","c4","c5"];
+const costColors=["","#999","#3aaa66","#3a88f0","#8844d0","#c8960c"];
+const costBg=["","#f0f0f0","#c8f5dc","#c4dcff","#e8d4ff","#fff0b0"];
+let rowOrder=[...CLASS_ORDER];
+let colOrder=[...MAIN_ORIGINS,"Unique"];
+const selected=new Set();
+let curScale=1;
+const champsByName={};rawChamps.forEach(ch=>{champsByName[ch.n]=ch;});
+function buildLookup(){const lk={};rawChamps.forEach(ch=>{const eo=UNIQUE_ORIGINS.has(ch.o)?"Unique":ch.o;const cls=ch.cl.length===0?["None"]:ch.cl;cls.forEach(cl=>{const k=`${cl}|${eo}`;(lk[k]=lk[k]||[]).push(ch);});});return lk;}
+function buildBpList(tiers){if(!tiers||!Object.keys(tiers).length)return"";return`<div class="tt-bps"><ul>${Object.entries(tiers).map(([bp,eff])=>`<li><b>${bp}</b>${eff}</li>`).join("")}</ul></div>`;}
+function itemIconsHtml(name){
+  const items=champItems[name];
+  if(!items||!items.length)return"";
+  const icons=items.map(item=>{
+    const slug=itemSlug(item);
+    const url=`${IBASE}${slug}.png?v=5`;
+    return`<div class="tt-item-wrap"><img src="${url}" alt="${item}" title="${item}"><span>${item}</span></div>`;
+  }).join("");
+  return`<div class="tt-section">Recommended Items</div><div class="tt-items">${icons}</div>`;
+}
+const ttEl=document.getElementById("tt");
+function showTT(html,e){ttEl.innerHTML=html;ttEl.style.display="block";moveTT(e);}
+function moveTT(e){const x=e.clientX+14,y=e.clientY+14;ttEl.style.left=`${Math.min(x,window.innerWidth-ttEl.offsetWidth-8)}px`;ttEl.style.top=`${Math.min(y,window.innerHeight-ttEl.offsetHeight-8)}px`;}
+function hideTT(){ttEl.style.display="none";}
+function champTT(name,e){
+  const ch=champsByName[name];if(!ch)return;
+  const isUnique=UNIQUE_ORIGINS.has(ch.o);
+  const clLabel=ch.cl.length===0?"None (no class)":ch.cl.join(", ");
+  let html=`<div class="tt-name">${name}</div><div class="tt-sub">Cost ${ch.c} · ${ch.o} · ${clLabel}</div>`;
+  html+=`<div class="tt-desc"><span style="color:#a8d0f8;font-weight:700">Passive:</span> ${ch.p}</div>`;
+  html+=`<div class="tt-desc"><span style="color:#a8d0f8;font-weight:700">Active:</span> ${ch.a}</div>`;
+  html+=itemIconsHtml(name);
+  if(isUnique&&originBP[ch.o]){html+=`<div class="tt-origin-divider"></div><div class="tt-desc"><span style="color:#f0c860;font-weight:700">${ch.o} (Unique Origin):</span> ${originBP[ch.o].desc.replace(/\n/g,"<br>")}</div>${buildBpList(originBP[ch.o].tiers)}`;}
+  showTT(html,e);
+}
+function traitTT(name,data,type,e){if(!data)return;showTT(`<div class="tt-name">${name}</div><div class="tt-sub">${type}</div><div class="tt-desc">${data.desc.replace(/\n/g,"<br>")}</div>${buildBpList(data.tiers)}`,e);}
+function maxReached(bpMap,count){const keys=Object.keys(bpMap||{}).map(Number).sort((a,b)=>a-b);let best=0;keys.forEach(bp=>{if(count>=bp)best=bp;});return best;}
+function getBpArr(bpMap){return Object.keys(bpMap||{}).map(Number);}
+function selCountForClass(cl){if(cl==="None")return rawChamps.filter(ch=>ch.cl.length===0&&selected.has(ch.n)).length;return rawChamps.filter(ch=>ch.cl.includes(cl)&&selected.has(ch.n)).length;}
+function selCountForOrigin(o){if(o==="Unique")return rawChamps.filter(ch=>UNIQUE_ORIGINS.has(ch.o)&&selected.has(ch.n)).length;return rawChamps.filter(ch=>ch.o===o&&selected.has(ch.n)).length;}
+function applyScale(scale){curScale=scale;const sc=document.getElementById("tblScaler"),ou=document.getElementById("tblOuter"),tbl=document.getElementById("tbl");sc.style.transform=`scale(${scale})`;sc.style.transformOrigin="top left";sc.style.width=tbl.offsetWidth+"px";ou.style.height=Math.ceil(tbl.offsetHeight*scale)+"px";}
+function onSlider(val){document.getElementById("scaleLabel").textContent=val+"%";applyScale(val/100);}
+function updateCounter(){document.getElementById("cnum").textContent=selected.size;document.getElementById("cchips").innerHTML=[...selected].map(name=>{const ch=champsByName[name];const bg=costBg[ch?ch.c:1],bc=costColors[ch?ch.c:1];return`<span class="sel-tag" style="background:${bg};border-color:${bc};color:${ch&&ch.c===1?'#222':'inherit'}" data-desel="${name}">${name}<span class="xt"> ×</span></span>`;}).join("");}
+function updateVisuals(){
+  const tbl=document.getElementById("tbl");if(!tbl)return;
+  rowOrder.forEach((cl,ri)=>{const tr=tbl.querySelector(`tr[data-ri="${ri}"]`);if(!tr)return;const count=selCountForClass(cl);tr.classList.toggle("row-sel-hl",count>0);const bpData=classBP[cl];if(bpData){const reached=maxReached(bpData.tiers,count);const badge=tr.querySelector(".cls-count");if(badge){badge.textContent=count;badge.classList.toggle("show",count>0);}tr.querySelectorAll(".bpn").forEach(p=>p.classList.toggle("reached",reached>=+p.dataset.bp));}});
+  colOrder.forEach((o,ci)=>{const count=selCountForOrigin(o);tbl.querySelectorAll(`[data-ci="${ci}"]`).forEach(el=>el.classList.toggle("col-sel-hl",count>0));const th=tbl.querySelector(`th[data-ci="${ci}"]`);if(th){th.classList.toggle("col-sel-hl",count>0);const bpData=originBP[o];if(bpData){const reached=maxReached(bpData.tiers,count);const badge=th.querySelector(".hdr-count");if(badge){badge.textContent=count;badge.classList.toggle("show",count>0);}th.querySelectorAll(".obpn").forEach(p=>p.classList.toggle("reached",reached>=+p.dataset.bp));}}});
+  tbl.querySelectorAll(".ch").forEach(el=>{el.classList.toggle("selected",selected.has(el.dataset.n));});
+}
+function toggleSelect(name){if(selected.has(name))selected.delete(name);else selected.add(name);updateCounter();updateVisuals();}
+function clearAll(){selected.clear();updateCounter();updateVisuals();}
+function render(){
+  const lk=buildLookup();const tbl=document.getElementById("tbl");
+  let h=`<thead><tr><th class="corner">Class / Origin</th>`;
+  colOrder.forEach((o,ci)=>{const bpData=originBP[o];const bpArr=bpData?getBpArr(bpData.tiers):[];const bps=bpArr.map(n=>`<span class="obpn" data-bp="${n}">${n}</span>`).join("");const isUniq=o==="Unique";h+=`<th class="origin-th${isUniq?" unique-th":""}" data-ci="${ci}" draggable="${!isUniq}" data-o="${o}"><span class="hdr-count">0</span><span class="oname">${isUniq?"Unique Origins":o}</span>${bps?`<div class="obp">${bps}</div>`:""}</th>`;});
+  h+=`</tr></thead><tbody>`;
+  rowOrder.forEach((cl,ri)=>{const isNone=cl==="None";const bpData=classBP[cl];const bpArr=bpData?getBpArr(bpData.tiers):[];const bps=bpArr.map(n=>`<span class="bpn" data-bp="${n}">${n}</span>`).join("");h+=`<tr data-ri="${ri}" draggable="true"><td class="cls${isNone?" none-cls":""}" data-ri="${ri}" data-cl="${cl}"><div>${isNone?"None":cl}</div>${bps?`<div class="bp">${bps}</div>`:""}<span class="cls-count">0</span></td>`;colOrder.forEach((o,ci)=>{const list=(lk[`${cl}|${o}`]||[]).sort((a,b)=>a.c-b.c);if(!list.length){h+=`<td data-ri="${ri}" data-ci="${ci}"></td>`;return;}const chips=list.map(ch=>{const s=champSlugs[ch.n]||ch.n.toLowerCase().replace(/[^a-z0-9]/g,"");return`<span class="ch ${costCls[ch.c]}${selected.has(ch.n)?" selected":""}" data-n="${ch.n}"><img class="portrait" src="${CBASE}${s}.png?v=5" alt="${ch.n}" loading="lazy" onerror="this.style.display='none'"><span>${ch.n}</span></span>`;}).join("");h+=`<td data-ri="${ri}" data-ci="${ci}"><div class="cell">${chips}</div></td>`;});h+=`</tr>`;});
+  h+=`</tbody>`;tbl.innerHTML=h;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{applyScale(curScale);updateVisuals();}));
+}
+const tblWrap=document.getElementById("tblScaler");
+tblWrap.addEventListener("click",e=>{const chip=e.target.closest(".ch");if(chip){e.stopPropagation();toggleSelect(chip.dataset.n);}});
+document.getElementById("cchips").addEventListener("click",e=>{const tag=e.target.closest("[data-desel]");if(tag)toggleSelect(tag.dataset.desel);});
+tblWrap.addEventListener("mouseover",e=>{
+  if(dragType)return;
+  const chip=e.target.closest(".ch"),clsCell=e.target.closest("[data-cl]"),originTh=e.target.closest("[data-o]");
+  if(chip){champTT(chip.dataset.n,e);return;}
+  if(clsCell){const cl=clsCell.dataset.cl;if(cl&&cl!=="None")traitTT(cl,classBP[cl],"Class",e);else hideTT();return;}
+  if(originTh){const o=originTh.dataset.o;if(o&&o!=="Unique")traitTT(o,originBP[o],"Origin",e);else hideTT();return;}
+  hideTT();
+});
+tblWrap.addEventListener("mousemove",e=>{if(ttEl.style.display!=="none")moveTT(e);});
+tblWrap.addEventListener("mouseleave",()=>{hideTT();clearHover();});
+tblWrap.addEventListener("mouseover",e=>{if(dragType)return;clearHover();const cell=e.target.closest("td,th");if(!cell)return;const tbl=document.getElementById("tbl");const ri=cell.dataset.ri,ci=cell.dataset.ci;if(ri!==undefined){const tr=tbl.querySelector(`tr[data-ri="${ri}"]`);if(tr)tr.classList.add("row-hover");}if(ci!==undefined){tbl.querySelectorAll(`[data-ci="${ci}"]`).forEach(el=>el.classList.add("col-hover"));const th=tbl.querySelector(`th[data-ci="${ci}"]`);if(th)th.classList.add("col-hover");}},true);
+function clearHover(){const tbl=document.getElementById("tbl");if(!tbl)return;tbl.querySelectorAll(".row-hover,.col-hover").forEach(el=>el.classList.remove("row-hover","col-hover"));}
+let dragType=null,dragIdx=null,overIdx=null;
+tblWrap.addEventListener("dragstart",e=>{const tr=e.target.closest("tr[data-ri]"),th=e.target.closest("th[data-ci]");if(tr&&!e.target.closest(".ch")){dragType="row";dragIdx=+tr.dataset.ri;tr.classList.add("dragging-row");e.dataTransfer.effectAllowed="move";}else if(th){if(th.dataset.o==="Unique")return e.preventDefault();dragType="col";dragIdx=+th.dataset.ci;th.classList.add("dragging-col");e.dataTransfer.effectAllowed="move";}});
+tblWrap.addEventListener("dragend",()=>{dragType=null;dragIdx=null;overIdx=null;render();});
+tblWrap.addEventListener("dragover",e=>{if(!dragType)return;e.preventDefault();const tbl=document.getElementById("tbl");if(dragType==="row"){const tr=e.target.closest("tr[data-ri]");if(!tr)return;const ri=+tr.dataset.ri;if(ri===overIdx)return;tbl.querySelectorAll(".drag-over-row").forEach(el=>el.classList.remove("drag-over-row"));tr.classList.add("drag-over-row");overIdx=ri;}else{const th=e.target.closest("th[data-ci]");if(!th)return;const ci=+th.dataset.ci;if(ci===overIdx)return;tbl.querySelectorAll(".drag-over-col").forEach(el=>el.classList.remove("drag-over-col"));th.classList.add("drag-over-col");overIdx=ci;}});
+tblWrap.addEventListener("drop",e=>{if(!dragType||overIdx===null||dragIdx===overIdx)return;e.preventDefault();if(dragType==="row"){const moved=rowOrder.splice(dragIdx,1)[0];rowOrder.splice(overIdx,0,moved);}else{if(colOrder[overIdx]==="Unique")return;const moved=colOrder.splice(dragIdx,1)[0];colOrder.splice(overIdx,0,moved);}});
+render();
+</script>
